@@ -246,7 +246,7 @@
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-outline-secondary btn-sm" type="button" data-dismiss="modal">Close</button>
-                    <a class="btn btn-primary btn-sm" href="#">Buld your shop</a>
+                    <a class="btn btn-primary btn-sm" href="{{ route('shop.build') }}">Build your shop</a>
                 </div>
             </div>
         </div>
@@ -339,7 +339,7 @@
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-outline-secondary btn-sm" type="button" data-dismiss="modal">Close</button>
-                    <a class="btn btn-primary btn-sm" href="#">Buld your shop</a>
+                    <a class="btn btn-primary btn-sm" href=" {{ route('shop.create') }} ">Build your shop</a>
                 </div>
             </div>
         </div>

@@ -102,7 +102,7 @@
 
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="account-Zip">Zip</label>
+                        <label for="account-Zip">Zip/Pin Code</label>
                         <input class="form-control" name="zip" type="text" id="account-Zip" value="" required>
                     </div>
                 </div>
@@ -193,7 +193,7 @@
 
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="account-Zip">Zip</label>
+                        <label for="account-Zip">Zip/Pin Code</label>
                         <input class="form-control" name="zip" type="text" id="account-Zip"
                             value="{{ $details[0]->zip }}" required>
                     </div>

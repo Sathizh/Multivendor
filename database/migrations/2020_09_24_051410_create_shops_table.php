@@ -20,6 +20,10 @@ class CreateShopsTable extends Migration
             $table->string('shop_category');
             $table->string('shop_GST');
             $table->string('bank_account');
+            $table->string('state');
+            $table->string('city');
+            $table->integer('zip');
+            $table->integer('phone');
             $table->text('address');
             $table->text('is_activate')->default(true);
             $table->text('is_verified')->default(false);

@@ -58,7 +58,10 @@ Route::post('/customer_address_update','HomeController@customer_address_update')
 
 
 // shop
-Route::get('/create_shop',);
+Route::get('/build_shop', function () {
+   return view('Shop.create');
+})->name('shop.build');
+Route::post('/create_shop','shopcontroller@create')->name('shop.create')->middleware('auth');
 
 // validation
 Route::post('/register/checkphone', 'HomeController@phonevalidation')->name('email.phone');
