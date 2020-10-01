@@ -8,8 +8,8 @@
             @csrf
             <div class="col-md-6">
                 <div class="form-group">
-                    <label for="account-fn">Cpmpany/Business Name</label>
-                    <input class="form-control" name="name" type="text" id="account-fn" required>
+                    <label for="account-fn">Campany/Business Name</label>
+                    <input class="form-control" name="shop_name" type="text" id="account-fn" required>
                 </div>
                 <div class="form-group">
                     <label for="account-state">State</label>
@@ -63,8 +63,6 @@
                     <label for="account-fullAddress">Address</label>
                     <textarea class="form-control" name="address" id="account-fullAddress" cols="30" rows="10"
                         placeholder="Flat/House no./Company,Area,Streat" required></textarea>
-                    {{-- <input class="form-control" type="text" id="account-fullAdress"
-                                        value="{{ $details->fulladdress }}" required> --}}
                 </div>
             </div>
 
@@ -85,16 +83,16 @@
                 <div class="form-group">
                     <label for="account-phone">GST Number</label>
                     <input class="form-control" pattern="\d{2}[A-Z]{5}\d{4}[A-Z]{1}[A-Z\d]{1}[Z]{1}[A-Z\d]{1}"
-                        title="Eg: 22AAAAA0000A1Z5" name="gst" type="text" id="account-phone" value="" required>
+                        title="Eg: 22AAAAA0000A1Z5" name="shop_GST" type="text" id="ggst" value="" required>
                 </div>
+                <div id="gst_error"></div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="account-phone">Bank Account Number</label>
                     {{-- <input class="form-control" type="text" pattern="/^(?:[0-9]{11}|[0-9]{2}-[0-9]{3}-[0-9]{6})$/"
                         value="" required> --}}
-                    <input class="form-control" name="bank" type="text" pattern="^\d{9,18}$"
-                        value="" required>
+                    <input class="form-control" name="bank_account" type="text" pattern="^\d{9,18}$" value="" required>
                 </div>
             </div>
             <div class="col-md">
@@ -110,7 +108,8 @@
                     <div class="custom-control custom-checkbox d-block">
 
                     </div>
-                    <button class="btn btn-primary margin-right-none" type="submit">Update Address</button>
+                    <button class="btn btn-primary margin-right-none" id="create_shop" type="submit">Create
+                        Shop</button>
                 </div>
             </div>
         </form>

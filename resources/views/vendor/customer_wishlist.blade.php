@@ -24,18 +24,9 @@
                 <a class="list-group-item" href="{{ route('customer.profile') }}"><i class="icon-head"></i>Profile</a>
                 <a class="list-group-item" href="{{ route('customer.address') }}"><i class="icon-map"></i>Addresses</a>
                 <a class="list-group-item with-badge active" href="#"><i class="icon-heart"></i>Whishlist</a>
-                @if (auth()->user()->role == 2)
-                @php
-                $self=\App\Shop::where('user_id',auth()->user()->id)->get();
-                @endphp
-                <a class="list-group-item with-badge" href=" {{ route('shop.profile') }} "><i
-                        class="icon-tag"></i>{{ $self[0]->shop_name }}</a>
-                @else
                 <a class="list-group-item with-badge" href="#modalScroll" data-toggle="modal" data-backdrop="false"><i
                         class="icon-tag"></i>Sell On Multi
                     Vendor</a>
-
-                @endif
             </nav>
         </div>
         <div class="col-lg-8">
@@ -51,7 +42,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @if (count($details))
                         @foreach ($details as $item)
                         @php
                         $product=App\Product::find($item->product_id);
@@ -76,11 +66,6 @@
                                     title="Remove item"><i class="icon-cross"></i></a></td>
                         </tr>
                         @endforeach
-                        @else
-                        <tr>
-                            <td colspan="2" class="text-center">-- you are not make any wish list right yet --</td>
-                        </tr>
-                        @endif
                     </tbody>
                 </table>
             </div>

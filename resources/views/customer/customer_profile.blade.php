@@ -25,9 +25,18 @@
                 <a class="list-group-item" href="{{ route('customer.address') }}"><i class="icon-map"></i>Addresses</a>
                 <a class="list-group-item with-badge" href="{{ route('wishlist') }}"><i
                         class="icon-heart"></i>Wishlist</a>
+                @if ($details->role == 2)
+                @php
+                $self=\App\Shop::where('user_id',$details->id)->get();
+                @endphp
+                <a class="list-group-item with-badge" href=" {{ route('shop.profile') }} "><i
+                        class="icon-tag"></i>{{ $self[0]->shop_name }}</a>
+                @else
                 <a class="list-group-item with-badge" href="#modalScroll" data-toggle="modal" data-backdrop="false"><i
                         class="icon-tag"></i>Sell On Multi
                     Vendor</a>
+
+                @endif
             </nav>
         </div>
         <div class="col-lg-8">

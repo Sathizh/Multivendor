@@ -193,7 +193,7 @@
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span
                             aria-hidden="true">&times;</span></button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body" id="sell_on_MVZ">
                     <p>
                         <h4>
                             <b><i>
@@ -246,7 +246,8 @@
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-outline-secondary btn-sm" type="button" data-dismiss="modal">Close</button>
-                    <a class="btn btn-primary btn-sm" href="{{ route('shop.build') }}">Build your shop</a>
+                    <a class="btn btn-primary btn-sm" id="build_btn" href="{{ route('shop.build') }}">Build your
+                        shop</a>
                 </div>
             </div>
         </div>
@@ -339,7 +340,7 @@
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-outline-secondary btn-sm" type="button" data-dismiss="modal">Close</button>
-                    <a class="btn btn-primary btn-sm" href=" {{ route('shop.create') }} ">Build your shop</a>
+                    <a class="btn btn-primary btn-sm" href=" {{ route('shop.build') }} ">Build your shop</a>
                 </div>
             </div>
         </div>
@@ -933,15 +934,35 @@
     </header>
     <!-- Off-Canvas Wrapper-->
     <div class=" offcanvas-wrapper">
+        {{-- address_update_message --}}
         @if (session('address_update_message'))
         <div class="alert alert-success alert-dismissible fade show text-center margin-bottom-1x">
             <span class="alert-close" data-dismiss="alert"></span><i class="icon-help"></i>&nbsp;&nbsp;<strong>Success
                 alert:</strong>{{ session('address_update_message') }}</div>
         @endif
+        {{-- wishlist_clear_message --}}
         @if (session('wishlist_clear_message'))
         <div class="alert alert-warning alert-dismissible fade show text-center margin-bottom-1x">
             <span class="alert-close" data-dismiss="alert"></span><i class="icon-help"></i>&nbsp;&nbsp;<strong>Success
                 alert:</strong>{{ session('wishlist_clear_message') }}</div>
+        @endif
+        {{-- shop_request --}}
+        @if (session('shop_request'))
+        <div class="alert alert-success alert-dismissible fade show text-center margin-bottom-1x">
+            <span class="alert-close" data-dismiss="alert"></span><i class="icon-help"></i>&nbsp;&nbsp;<strong>Success
+                alert:</strong>{{ session('shop_request') }}</div>
+        @endif
+        {{-- shop_request_exist --}}
+        @if (session('shop_request_exist'))
+        <div class="alert alert-warning alert-dismissible fade show text-center margin-bottom-1x">
+            <span class="alert-close" data-dismiss="alert"></span><i class="icon-help"></i>&nbsp;&nbsp;<strong>Success
+                alert:</strong>{{ session('shop_request_exist') }}</div>
+        @endif
+        {{-- shop_update_message --}}
+        @if (session('shop_update_message'))
+        <div class="alert alert-success alert-dismissible fade show text-center margin-bottom-1x">
+            <span class="alert-close" data-dismiss="alert"></span><i class="icon-help"></i>&nbsp;&nbsp;<strong>Success
+                alert:</strong>{{ session('shop_update_message') }}</div>
         @endif
         <!-- Page Content-->
         @yield('content')
@@ -1063,6 +1084,7 @@
     <script src="{{ asset('assets/js/scripts.min.js') }}"></script>
     <!-- Customizer scripts-->
     <script src="{{ asset('assets/customizer/customizer.min.js') }}"></script>
+    @include('auth.script')
 </body>
 
 <!-- Mirrored from themes.rokaux.com/unishop/v3.2.1/template-1/account-orders.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 May 2020 06:34:02 GMT -->

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Shop;
 use App\User;
 use App\Order;
 use App\Product;
@@ -51,6 +52,23 @@ class HomeController extends Controller
         {
             $phone = $request->get('phone');
             $data = User::where('phone', $phone)->count();
+            if($data > 0)
+            {
+                echo "not_unique";
+            }
+            else
+            {
+                echo "unique";
+            }
+        }
+    }
+    public function GSTvalidation(Request $request)
+    {
+        if($request->get('gst'))
+        {
+            $gst = $request->get('gst');
+            $data = Shop::where('shop_GST', $gst)->count();
+            dd($data);
             if($data > 0)
             {
                 echo "not_unique";

@@ -24,18 +24,9 @@
                 <a class="list-group-item" href="{{ route('customer.address') }}"><i class="icon-map"></i>Addresses</a>
                 <a class="list-group-item with-badge" href="{{ route('wishlist') }}"><i
                         class="icon-heart"></i>Wishlist</a>
-                @if (auth()->user()->role == 2)
-                @php
-                $self=\App\Shop::where('user_id',auth()->user()->id)->get();
-                @endphp
-                <a class="list-group-item with-badge" href=" {{ route('shop.profile') }} "><i
-                        class="icon-tag"></i>{{ $self[0]->shop_name }}</a>
-                @else
                 <a class="list-group-item with-badge" href="#modalScroll" data-toggle="modal" data-backdrop="false"><i
                         class="icon-tag"></i>Sell On Multi
                     Vendor</a>
-
-                @endif
             </nav>
         </div>
         <div class="col-lg-8">
@@ -51,7 +42,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @if (count($Orders))
                         @foreach ($Orders as $order)
                         <tr>
                             <td><a class="text-medium navi-link" href="#" data-toggle="modal"
@@ -65,14 +55,41 @@
                             <td><span class="text-medium">Rs.{{ $order->grand_total }}</span></td>
                         </tr>
                         @endforeach
-                        @else
-                        <tr>
-                            <td colspan="4" class="text-center">
-
-                                -- you are not make any orders right yet --
-                            </td>
-                        </tr>
-                        @endif
+                        {{-- <tr>
+                                <td><a class="text-medium navi-link" href="#" data-toggle="modal"
+                                        data-target="#orderDetails">34VB5540K83</a></td>
+                                <td>July 21, 2017</td>
+                                <td><span class="text-info">In Progress</span></td>
+                                <td><span class="text-medium">$315.20</span></td>
+                            </tr>
+                            <tr>
+                                <td><a class="text-medium navi-link" href="#" data-toggle="modal"
+                                        data-target="#orderDetails">112P45A90V2</a></td>
+                                <td>June 15, 2017</td>
+                                <td><span class="text-warning">Delayed</span></td>
+                                <td><span class="text-medium">$1,264.00</span></td>
+                            </tr>
+                            <tr>
+                                <td><a class="text-medium navi-link" href="#" data-toggle="modal"
+                                        data-target="#orderDetails">28BA67U0981</a></td>
+                                <td>May 19, 2017</td>
+                                <td><span class="text-success">Delivered</span></td>
+                                <td><span class="text-medium">$198.35</span></td>
+                            </tr>
+                            <tr>
+                                <td><a class="text-medium navi-link" href="#" data-toggle="modal"
+                                        data-target="#orderDetails">502TR872W2</a></td>
+                                <td>April 04, 2017</td>
+                                <td><span class="text-success">Delivered</span></td>
+                                <td><span class="text-medium">$2,133.90</span></td>
+                            </tr>
+                            <tr>
+                                <td><a class="text-medium navi-link" href="#" data-toggle="modal"
+                                        data-target="#orderDetails">47H76G09F33</a></td>
+                                <td>March 30, 2017</td>
+                                <td><span class="text-success">Delivered</span></td>
+                                <td><span class="text-medium">$86.40</span></td>
+                            </tr> --}}
                     </tbody>
                 </table>
             </div>

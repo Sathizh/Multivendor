@@ -56,6 +56,13 @@ Route::get('/Profile','HomeController@customer_profile')->name('customer.profile
 Route::get('/Dashboarda','HomeController@customer_address')->name('customer.address')->middleware('auth');
 Route::post('/customer_address_update','HomeController@customer_address_update')->name('customer.address_update')->middleware('auth');
 
+// Vendor
+Route::get('/product/add','ProductController@create')->name('product.add')->middleware('auth');
+Route::get('/Shop/Profile','ShopController@shop_profile')->name('shop.profile')->middleware('auth');
+Route::get('/Shop/Profile_update','ShopController@shop_profile_update')->name('shop.profile.update')->middleware('auth');
+Route::get('/Dashboarda','HomeController@customer_address')->name('customer.address')->middleware('auth');
+Route::post('/customer_address_update','HomeController@customer_address_update')->name('customer.address_update')->middleware('auth');
+
 
 // shop
 Route::get('/build_shop', function () {
@@ -65,4 +72,5 @@ Route::post('/create_shop','shopcontroller@create')->name('shop.create')->middle
 
 // validation
 Route::post('/register/checkphone', 'HomeController@phonevalidation')->name('email.phone');
+Route::post('/shop_register/checkgst', 'HomeController@GSTvalidation')->name('shop.gst');
 
