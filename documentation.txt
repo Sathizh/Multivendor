@@ -3,3 +3,7 @@
 3-  enable and use google places api
 4- Adding Multiple Instances of Google Places autocomplete to multiple inputs in the same page
 4- calculate distance between two points google maps javascript
+
+
+// multi provider login
+composer require laravel/socialite

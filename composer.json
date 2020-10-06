@@ -13,6 +13,7 @@
         "fideloper/proxy": "^4.0",
         "jenssegers/mongodb": "^3.6",
         "laravel/framework": "^6.18.35",
+        "laravel/socialite": "^5.0",
         "laravel/tinker": "^2.0",
         "srmklive/paypal": "^1.8",
         "stripe/stripe-php": "^7.52"

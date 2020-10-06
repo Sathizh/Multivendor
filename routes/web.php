@@ -17,7 +17,14 @@ Route::redirect('/', '/home');
 
 Auth::routes();
 
+// auth with providers
+Route::get('login/github', 'Auth\LoginController@github');
+Route::get('login/github/redirect', 'Auth\LoginController@githubRedirect');
+
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('login_register', function () {
+    return view('auth.login&register');
+});
 // Route::get('/product/{product}', 'HomeController@single_product')->name('product.details');
 
 Route::get('/product/{product}', function (Product $product) {

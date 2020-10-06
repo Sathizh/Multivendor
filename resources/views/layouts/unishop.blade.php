@@ -676,7 +676,7 @@
                 <li><a href="shop-grid-ls.html"><span>Shop</span></a>
                     <ul class="sub-menu">
                         <li><a href="shop-categories.html">Shop Categories</a></li>
-                        <li class="has-children"><a href="shop-grid-ls.html"><span>Shop Grid</span></a>
+                        {{-- <li class="has-children"><a href="shop-grid-ls.html"><span>Shop Grid</span></a>
                             <ul class="sub-menu">
                                 <li><a href="shop-grid-ls.html">Grid Left Sidebar</a></li>
                                 <li><a href="shop-grid-rs.html">Grid Right Sidebar</a></li>
@@ -689,8 +689,8 @@
                                 <li><a href="shop-list-rs.html">List Right Sidebar</a></li>
                                 <li><a href="shop-list-ns.html">List No Sidebar</a></li>
                             </ul>
-                        </li>
-                        <li><a href="shop-single.html">Single Product</a></li>
+                        </li> --}}
+                        {{-- <li><a href="shop-single.html">Single Product</a></li> --}}
                         <li><a href="cart.html">Cart</a></li>
                         <li class="has-children"><a href="checkout-address.html"><span>Checkout</span></a>
                             <ul class="sub-menu">
@@ -703,7 +703,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="has-megamenu"><a href="#"><span>Mega Menu</span></a>
+                {{-- <li class="has-megamenu"><a href="#"><span>Mega Menu</span></a>
                     <ul class="mega-menu">
                         <li><span class="mega-menu-title">Top Categories</span>
                             <ul class="sub-menu">
@@ -837,7 +837,7 @@
                             </ul>
                         </li>
                     </ul>
-                </li>
+                </li> --}}
             </ul>
         </nav>
         <!-- Toolbar-->
