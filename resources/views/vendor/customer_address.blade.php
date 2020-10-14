@@ -19,7 +19,7 @@
                 </div>
             </aside>
             <nav class="list-group">
-                <a class="list-group-item with-badge" href="{{ route('customer.orders') }}"><i
+                <a class="list-group-item with-badge" href="#"><i
                         class="icon-bar-graph-2"></i>dashboard</a>
                 <a class="list-group-item" href="{{ route('customer.profile') }}"><i class="icon-head"></i>Profile</a>
                 <a class="list-group-item active" href="#"><i class="icon-map"></i>Addresses</a>

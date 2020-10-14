@@ -24,7 +24,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return \view('vendor.vendor_add_product');
     }
 
     /**

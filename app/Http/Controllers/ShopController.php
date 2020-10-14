@@ -47,7 +47,6 @@ class ShopController extends Controller
     {
         $id=auth()->user()->id;
         $details=Shop::where('user_id',$id)->get();
-        // dd($details);
         return \view('vendor.vendor_shop_profile')->with('details',$details[0]);
     }
 
