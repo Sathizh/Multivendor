@@ -15,7 +15,7 @@ use App\Product;
 
 Route::redirect('/', '/home');
 
-Auth::routes();
+Auth::routes(['verify'=>true]);
 
 // auth with providers
 Route::get('login/github', 'Auth\LoginController@github');
@@ -78,6 +78,6 @@ Route::get('/build_shop', function () {
 Route::post('/create_shop','shopcontroller@create')->name('shop.create')->middleware('auth');
 
 // validation
-Route::post('/register/checkphone', 'HomeController@phonevalidation')->name('email.phone');
+Route::post('/register/checkphone', 'Auth\RegisterController@phonevalidation')->name('email.phone');
 Route::post('/shop_register/checkgst', 'HomeController@GSTvalidation')->name('shop.gst');
 

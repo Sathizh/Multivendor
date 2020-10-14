@@ -48,9 +48,15 @@ class CartController extends Controller
     public function checkout()
     {
         $id=auth()->user()->id;
-        $details=Customer_Address::where('user_id',$id)->get();
-        // dd($details);
-        return view('cart.checkout')->with('details',$details);
+            $details=Customer_Address::where('user_id',$id)->get();
+
+            if($details->isEmpty())
+            {
+                return view('cart.checkout')->with('no-data',"No_data");
+            }
+            else{
+                return view('cart.checkout')->with('details',$details);
+            }
     }
     public function destroy($itemId)
     {

@@ -18,7 +18,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        // $this->middleware('auth');
+        // $this->middleware(['auth','verified']);
     }
 
     /**
@@ -46,22 +46,22 @@ class HomeController extends Controller
         return \view('customer.customer_profile')->with('details',$details);
 
     }
-    public function phonevalidation(Request $request)
-    {
-        if($request->get('phone'))
-        {
-            $phone = $request->get('phone');
-            $data = User::where('phone', $phone)->count();
-            if($data > 0)
-            {
-                echo "not_unique";
-            }
-            else
-            {
-                echo "unique";
-            }
-        }
-    }
+    // public function phonevalidation(Request $request)
+    // {
+    //     if($request->get('phone'))
+    //     {
+    //         $phone = $request->get('phone');
+    //         $data = User::where('phone', $phone)->count();
+    //         if($data > 0)
+    //         {
+    //             echo "not_unique";
+    //         }
+    //         else
+    //         {
+    //             echo "unique";
+    //         }
+    //     }
+    // }
     public function GSTvalidation(Request $request)
     {
         if($request->get('gst'))

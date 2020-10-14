@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -74,5 +75,21 @@ class RegisterController extends Controller
             'role' =>3,
 
         ]);
+    }
+    public function phonevalidation(Request $request)
+    {
+        if($request->get('phone'))
+        {
+            $phone = $request->get('phone');
+            $data = User::where('phone', $phone)->count();
+            if($data > 0)
+            {
+                echo "not_unique";
+            }
+            else
+            {
+                echo "unique";
+            }
+        }
     }
 }

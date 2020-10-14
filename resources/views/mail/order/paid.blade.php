@@ -23,10 +23,15 @@ Your Receipt
             <td>₹ {{ $item['price'] }}</td>
         </tr>
         @endforeach
+        <tr>
+            <td>Delivery</td>
+            <td></td>
+            <td>₹ 50</td>
+        </tr>
     </tbody>
 </table>
 
-<h2 class="text-right">Total: ₹ {{$order->grand_total}}</h2>
+<h2 class="text-right">Total: ₹ {{$order->grand_total+50}}</h2>
 
 
 @component('mail::button', ['url' => ''])

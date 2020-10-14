@@ -27,8 +27,8 @@
                 <div class="row margin-bottom-1x">
                     <div class="col-xl-4 col-md-6 col-sm-4"><a class="btn btn-sm btn-block facebook-btn" href="#"><i
                                 class="socicon-facebook"></i>&nbsp;Facebook login</a></div>
-                    <div class="col-xl-4 col-md-6 col-sm-4"><a class="btn btn-sm btn-block github-btn" href="/login/github"><i
-                                class="socicon-github"></i>&nbsp;GitHub login</a></div>
+                    <div class="col-xl-4 col-md-6 col-sm-4"><a class="btn btn-sm btn-block twitter-btn" href="/login/github"><i
+                                class="socicon-twitter"></i>&nbsp;Twitter Login</a></div>
                     <div class="col-xl-4 col-md-6 col-sm-4"><a class="btn btn-sm btn-block google-btn" href="#"><i
                                 class="socicon-googleplus"></i>&nbsp;Google+ login</a></div>
                 </div>

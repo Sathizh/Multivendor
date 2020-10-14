@@ -12,6 +12,8 @@
 </head>
 
 <body>
+    @extends('layouts.unishop')
+    @section('content')
     @php
     $stripe_key = 'pk_test_51HPhowDdzt2WcuDDXFVxM9ZnH0i8HLU69TDRnhvTbpHtxhz1C9B3mgpKh8Yy5PLoCYXlNbjixZCrdT7M4jasLh2Q00OdwPkOur'
     @endphp
@@ -19,7 +21,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="">
-                    <p>You will be charged ₹ {{ $item->grand_total }}.00</p>
+                    <p>You will be charged ₹ {{ $item->grand_total+50 }}.00</p>
                 </div>
                 <div class="card">
                     <form action="{{route('checkout.credit-card',$item->id)}}" method="post" id="payment-form">
@@ -114,6 +116,7 @@
             });
         });
     </script>
+    @endsection
 </body>
 
 </html>

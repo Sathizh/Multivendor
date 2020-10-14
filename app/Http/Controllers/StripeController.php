@@ -20,6 +20,8 @@ class StripeController extends Controller
 		$amount = $item->grand_total;
 		$amount *= 100;
         $amount = (int) $amount;
+        $amount+=5000;
+        // dd($amount);
         $payment_intent = \Stripe\PaymentIntent::create([
 			'description' => 'Stripe Test Payment',
 			'amount' => $amount,

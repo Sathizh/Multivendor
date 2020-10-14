@@ -617,7 +617,7 @@
     <div class="topbar">
         <div class="topbar-column"><a class="hidden-md-down" href="mailto:support@mulvenz.com"><i
                     class="icon-mail"></i>&nbsp; support@mulvenz.com</a><a class="hidden-md-down"
-                href="tel:00331697720"><i class="icon-bell"></i>&nbsp; 00 33 169 7720</a><a
+                href="tel:00331697720"><i class="icon-bell"></i>&nbsp; +91 9427 20958</a><a
                 class="social-button sb-facebook shape-none sb-dark" href="#" target="_blank"><i
                     class="socicon-facebook"></i></a><a class="social-button sb-twitter shape-none sb-dark" href="#"
                 target="_blank"><i class="socicon-twitter"></i></a><a
@@ -625,7 +625,7 @@
                     class="socicon-instagram"></i></a><a class="social-button sb-pinterest shape-none sb-dark" href="#"
                 target="_blank"><i class="socicon-pinterest"></i></a>
         </div>
-        <div class="topbar-column"><a class="hidden-md-down" href="#"><i class="icon-download"></i>&nbsp; Get mobile
+        {{-- <div class="topbar-column"><a class="hidden-md-down" href="#"><i class="icon-download"></i>&nbsp; Get mobile
                 app</a>
             <div class="lang-currency-switcher-wrap">
                 <div class="lang-currency-switcher dropdown-toggle"><span class="language"><img alt="English"
@@ -646,7 +646,7 @@
                             alt="Italiano">Italiano</a>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
     <!-- Navbar-->
     <!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page.-->
@@ -668,14 +668,14 @@
             </div>
         </div>
         <!-- Main Navigation-->
-        <nav class="site-menu">
+        <nav class="site-menu pl-5">
             <ul>
                 <li class="has-megamenu"><a href="{{ route('home') }}"><span>Home</span></a>
 
                 </li>
-                <li><a href="shop-grid-ls.html"><span>Shop</span></a>
-                    <ul class="sub-menu">
-                        <li><a href="shop-categories.html">Shop Categories</a></li>
+                <li><a href="shop-grid-ls.html"><span>Shop</span></a></li>
+                    {{-- <ul class="sub-menu"> --}}
+                        <li><a href="shop-categories.html"><span>Shop Categories</span></a></li>
                         {{-- <li class="has-children"><a href="shop-grid-ls.html"><span>Shop Grid</span></a>
                             <ul class="sub-menu">
                                 <li><a href="shop-grid-ls.html">Grid Left Sidebar</a></li>
@@ -691,7 +691,7 @@
                             </ul>
                         </li> --}}
                         {{-- <li><a href="shop-single.html">Single Product</a></li> --}}
-                        <li><a href="cart.html">Cart</a></li>
+                        <li><a href="cart.html"><span>Cart</span></a></li>
                         <li class="has-children"><a href="checkout-address.html"><span>Checkout</span></a>
                             <ul class="sub-menu">
                                 <li><a href="checkout-address.html">Address</a></li>
@@ -701,8 +701,8 @@
                                 <li><a href="checkout-complete.html">Complete</a></li>
                             </ul>
                         </li>
-                    </ul>
-                </li>
+                    {{-- </ul> --}}
+
                 {{-- <li class="has-megamenu"><a href="#"><span>Mega Menu</span></a>
                     <ul class="mega-menu">
                         <li><span class="mega-menu-title">Top Categories</span>
@@ -838,13 +838,17 @@
                         </li>
                     </ul>
                 </li> --}}
+                <li class="w-25 pl-2 pt-3"><span><form class="input-group form-group" method="get"><span class="input-group-btn">
+                        <button type="submit"><i class="icon-search"></i></button></span>
+                    <input class="form-control w-100" type="search" placeholder="Search site">
+                </form></span></li>
             </ul>
         </nav>
         <!-- Toolbar-->
         <div class="toolbar">
             <div class="inner">
                 <div class="tools">
-                    <div class="search"><i class="icon-search"></i></div>
+                    {{-- <div class="search"><i class="icon-search"></i></div> --}}
                     @auth
                     <div class="account"><a href="#"></a><i class="icon-head"></i>
                         <ul class="toolbar-dropdown">
@@ -975,7 +979,7 @@
                         <!-- Contact Info-->
                         <section class="widget widget-light-skin">
                             <h3 class="widget-title">Get In Touch With Us</h3>
-                            <p class="text-white">Phone: 00 33 169 7720</p>
+                            <p class="text-white">Phone: +91 98427 20958</p>
                             <ul class="list-unstyled text-sm text-white">
                                 <li><span class="opacity-50">Monday-Friday:</span>9.00
                                     am - 8.00 pm</li>
