@@ -82,4 +82,11 @@ class ProductController extends Controller
     {
         //
     }
+    public function My_Product()
+    {
+        $products=Product::paginate(5);
+        // dd($details);
+        return view('vendor.vendor_my_products')->with('products',$products);
+
+    }
 }

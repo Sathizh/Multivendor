@@ -72,6 +72,7 @@ Route::get('/Shop/Profile','ShopController@shop_profile')->name('shop.profile')-
 Route::get('/Shop/Profile_update','ShopController@shop_profile_update')->name('shop.profile.update')->middleware('auth');
 Route::get('/Dashboarda','HomeController@customer_address')->name('customer.address')->middleware('auth');
 Route::post('/customer_address_update','HomeController@customer_address_update')->name('customer.address_update')->middleware('auth');
+Route::get('/Shop/my_products','ProductController@My_Product')->name('product.list')->middleware('auth');
 
 
 // shop

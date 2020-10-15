@@ -3,29 +3,34 @@
 <!-- Page Content-->
 <div class="container padding-bottom-3x mb-2 mt-5">
     <div class="row">
+        @php
+        $id=auth()->user()->id;
+        $details=App\Shop::where('user_id',$id)->get();
+        $details=$details[0];
+        @endphp
         <div class="col-lg-4">
             <aside class="user-info-wrapper">
                 <div class="user-cover" style="background-image: url(assets/img/account/user-cover-img.jpg);">
-                    {{-- <div class="info-label" data-toggle="tooltip" title="You currently have 290 Reward Points to spend">
-                            <i class="icon-medal"></i>290 points</div> --}}
                 </div>
                 <div class="user-info">
                     <div class="user-avatar"><a class="edit-avatar" href="#"></a><img
-                            src="assets/img/account/user-ava.jpg" alt="User"></div>
+                            src="{{ asset('assets/img/account/user-ava.jpg') }}" alt="User"></div>
                     <div class="user-data">
-                        <h4>{{ auth()->user()->name }}</h4><span><b>Joined
-                            </b>{{ date('F d Y', strtotime(auth()->user()->created_at)) }}</span>
+                        <h4>{{ $details->shop_name }}</h4><span><b>Since
+                            </b>{{ date('F d Y', strtotime($details->created_at)) }}</span>
                     </div>
                 </div>
             </aside>
             <nav class="list-group">
-                <a class="list-group-item with-badge" href="#"><i class="icon-bar-graph-2"></i>dashboard</a>
-                <a class="list-group-item" href="{{ route('customer.profile') }}"><i class="icon-head"></i>Profile</a>
-                <a class="list-group-item" href="{{ route('customer.address') }}"><i class="icon-map"></i>Addresses</a>
-                <a class="list-group-item with-badge active" href="#"><i class="icon-heart"></i>Whishlist</a>
-                <a class="list-group-item with-badge" href="#modalScroll" data-toggle="modal" data-backdrop="false"><i
-                        class="icon-tag"></i>Sell On Multi
-                    Vendor</a>
+                <a class="list-group-item with-badge" href="{{ route('shop.dashboard') }}"><i
+                        class="icon-bar-graph-2"></i>dashboard</a>
+                <a class="list-group-item " href="{{ route('shop.profile') }}"><i class="icon-head"></i>Shop
+                    Profile</a>
+                <a class="list-group-item " href="{{ route('product.add') }}"><i class="icon-plus"></i>Add Product</a>
+                <a class="list-group-item with-badge active" href="{{ route('product.list')}}"><i class="icon-box"></i>My Products</a>
+                <a class="list-group-item with-badge" href="{{ route('home') }}"><i class="icon-bag"></i>Back to
+                    <span style="color: orangered">MulVenZ</span></a>
+
             </nav>
         </div>
         <div class="col-lg-8">
@@ -34,18 +39,15 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Product Name</th>
-                            <th class="text-center"><a class="btn btn-sm btn-outline-danger"
-                                    href="{{ route('wishlist.clear') }}">Clear Wishlist</a>
-                            </th>
+                            <th>Your products</th>
+                            <th class="text-center">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($details as $item)
+                        @foreach ($products as $product)
                         @php
-                        $product=App\Product::find($item->product_id);
+                            // dd($product->name);
                         @endphp
-
                         <tr>
                             <td>
                                 <div class="product-item"><a class="product-thumb" href="shop-single.html"><img
@@ -54,15 +56,15 @@
                                         <h4 class="product-title"><a href="shop-single.html">{{ $product->name }}</a>
                                         </h4>
                                         <div class="text-lg text-medium text-muted">₹{{ $product->price }}</div>
-                                        <div>Availability:
+                                        <div>Stock status:
                                             <div class="d-inline text-success">In Stock</div>
                                         </div>
                                     </div>
                                 </div>
                             </td>
-                            <td class="text-center"><a class="remove-from-cart"
+                            <td class="text-center"><a class="btn btn-outline-warning btn-sm"
                                     href="{{ route('wishlist.add_or_remove', $product->id) }}" data-toggle="tooltip"
-                                    title="Remove item"><i class="icon-cross"></i></a></td>
+                                    title="Remove item">Edit</a></td>
                         </tr>
                         @endforeach
                     </tbody>

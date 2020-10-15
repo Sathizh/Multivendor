@@ -27,6 +27,7 @@
     <link id="mainStyles" rel="stylesheet" media="screen" href="{{ asset('assets/css/styles.min.css') }}">
     <!-- Customizer Styles-->
     <link rel="stylesheet" media="screen" href="{{ asset('assets/customizer/customizer.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/dropzone/min/dropzone.min.css') }}">
     <!-- Google Tag Manager-->
     {{-- <script>
       (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -38,6 +39,7 @@
     </script> --}}
     <!-- Modernizr-->
     <script src="{{ asset('assets/js/modernizr.min.js') }}"></script>
+
 </head>
 <!-- Body-->
 <!-- Photoswipe container-->
@@ -1088,6 +1090,7 @@
     <script src="{{ asset('assets/js/scripts.min.js') }}"></script>
     <!-- Customizer scripts-->
     <script src="{{ asset('assets/customizer/customizer.min.js') }}"></script>
+    <script src="{{ asset('assets/dropzone/min/dropzone.min.js') }}"></script>
     @include('auth.script')
 </body>
 
