@@ -62,9 +62,14 @@
                                     </div>
                                 </div>
                             </td>
-                            <td class="text-center"><a class="btn btn-outline-warning btn-sm"
-                                    href="{{ route('wishlist.add_or_remove', $product->id) }}" data-toggle="tooltip"
-                                    title="Remove item">Edit</a></td>
+                            <td class="text-center">
+                                <a class="btn btn-outline-warning btn-sm"
+                                    href="#" data-toggle="tooltip"
+                                    title="Edit item">Edit</a>
+                                <a class="btn btn-outline-danger btn-sm"
+                                    href="#" data-toggle="tooltip"
+                                    title="Remove item">Delete</a>
+                            </td>
                         </tr>
                         @endforeach
                     </tbody>

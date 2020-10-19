@@ -33,54 +33,42 @@
             </nav>
         </div>
         <div class="col-lg-8">
-            <div class="padding-top-2x mt-2 hidden-lg-up"></div>
-            <h6 class="text-muted text-normal text-uppercase padding-top-2x mt-2">Justified Tabs</h6>
-            <hr class="margin-bottom-1x">
-            <ul class="nav nav-tabs nav-justified" role="tablist">
-                <li class="nav-item"><a class="nav-link active" href="#home2" data-toggle="tab" role="tab">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="#profile2" data-toggle="tab" role="tab">Profile</a></li>
-                <li class="nav-item"><a class="nav-link" href="#settings2" data-toggle="tab" role="tab">Settings</a>
-                </li>
-            </ul>
-            <div class="tab-content">
-                <div class="tab-pane fade show active" id="home2" role="tabpanel">
-                    <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua,
-                        retro synth
-                        master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit
-                        butcher retro
-                        keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid.
-                        Aliquip placeat
-                        salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.
-                    </p>
-                </div>
-                <div class="tab-pane fade" id="profile2" role="tabpanel">
-                    <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.
-                        Exercitation +1
-                        labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko
-                        farm-to-table craft beer
-                        twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad
-                        vinyl
-                        cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar
-                        helvetica VHS
-                        salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson
-                        8-bit,
-                        sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party
-                        scenester
-                        stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</p>
-                </div>
-                <div class="tab-pane fade" id="settings2" role="tabpanel">
-                    <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out
-                        master cleanse
-                        gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party
-                        locavore wolf
-                        cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold
-                        out
-                        farm-to-table VHS viral locavore cosby sweater. Lomo wolf viral, mustache readymade thundercats
-                        keffiyeh
-                        craft beer marfa ethical. Wolf salvia freegan.</p>
-                </div>
+            <div class="d-flex justify-content-around">
+            <div class="card border-primary w-25">
+              <img class="card-img-top" src="holder.js/100px180/" alt="">
+              <div class="card-body">
+                <h4 class="card-title">Number of Products</h4>
+                <p class="card-text">183</p>
+              </div>
             </div>
-            <hr>
+            <div class="card border-success w-25">
+              <img class="card-img-top" src="holder.js/100px180/" alt="">
+              <div class="card-body">
+                <h4 class="card-title">Profit Details</h4>
+                <p class="card-text">₹27,503,00</p>
+              </div>
+            </div>
+            <div class="card border-warning w-25">
+              <img class="card-img-top" src="holder.js/100px180/" alt="">
+              <div class="card-body">
+                <h4 class="card-title">Buyer Data Table</h4>
+                <p class="card-text"><i class="icon-head">View List</i></p>
+              </div>
+            </div>
+            </div>
+            <div class="row d-flex justify-content-around pt-5">
+            <div class="card border-danger w-50">
+              <img class="card-img-top" src="holder.js/100px180/" alt="">
+              <div class="card-body">
+                <h4 class="card-title">Product Progress Details</h4>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" role="progressbar"
+                        style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
+                </div>
+              </div>
+            </div>
+            </div>
+
         </div>
     </div>
 </div>

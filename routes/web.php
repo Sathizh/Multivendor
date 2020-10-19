@@ -68,6 +68,7 @@ Route::get('/dashboard', function () {
     return view('vendor.vendor_dashboard');
 })->name('shop.dashboard');
 Route::get('/product_add','ProductController@create')->name('product.add')->middleware('auth');
+Route::post('/add_product','ProductController@index')->name('shop.product.add')->middleware('auth');
 Route::get('/Shop/Profile','ShopController@shop_profile')->name('shop.profile')->middleware('auth');
 Route::get('/Shop/Profile_update','ShopController@shop_profile_update')->name('shop.profile.update')->middleware('auth');
 Route::get('/Dashboarda','HomeController@customer_address')->name('customer.address')->middleware('auth');

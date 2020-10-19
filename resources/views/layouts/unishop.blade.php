@@ -1088,6 +1088,7 @@
     <!-- JavaScript (jQuery) libraries, plugins and custom scripts-->
     <script src="{{ asset('assets/js/vendor.min.js') }}"></script>
     <script src="{{ asset('assets/js/scripts.min.js') }}"></script>
+    <script src="{{ asset('assets/js/myscript.js') }}"></script>
     <!-- Customizer scripts-->
     <script src="{{ asset('assets/customizer/customizer.min.js') }}"></script>
     <script src="{{ asset('assets/dropzone/min/dropzone.min.js') }}"></script>
