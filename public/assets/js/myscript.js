@@ -70,8 +70,5 @@ jQuery(document).ready(function () {
     });
 
 });
- var e = CKEditor.instances['discription']
-    e.on( 'keyup', function( event ) {
-        alert( e.getData() );
-    });
+
 

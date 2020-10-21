@@ -4,9 +4,9 @@
 <div class="container padding-bottom-3x mb-2 mt-5">
     <div class="row">
         @php
-            $id=auth()->user()->id;
-            $details=App\Shop::where('user_id',$id)->get();
-            $details=$details[0];
+        $id=auth()->user()->id;
+        $details=App\Shop::where('user_id',$id)->get();
+        $details=$details[0];
         @endphp
         <div class="col-lg-4">
             <aside class="user-info-wrapper">
@@ -34,39 +34,40 @@
         </div>
         <div class="col-lg-8">
             <div class="d-flex justify-content-around">
-            <div class="card border-primary w-25">
-              <img class="card-img-top" src="holder.js/100px180/" alt="">
-              <div class="card-body">
-                <h4 class="card-title">Number of Products</h4>
-                <p class="card-text">183</p>
-              </div>
-            </div>
-            <div class="card border-success w-25">
-              <img class="card-img-top" src="holder.js/100px180/" alt="">
-              <div class="card-body">
-                <h4 class="card-title">Profit Details</h4>
-                <p class="card-text">₹27,503,00</p>
-              </div>
-            </div>
-            <div class="card border-warning w-25">
-              <img class="card-img-top" src="holder.js/100px180/" alt="">
-              <div class="card-body">
-                <h4 class="card-title">Buyer Data Table</h4>
-                <p class="card-text"><i class="icon-head">View List</i></p>
-              </div>
-            </div>
+                <div class="card border-primary w-25 dashboard1">
+                    <img class="card-img-top" src="holder.js/100px180/" alt="">
+                    <div class="card-body">
+                        <h4 class="card-title text-white">Number of Products</h4>
+                        <p class="card-text text-white">183</p>
+                    </div>
+                </div>
+                <div class="card border-success w-25 dashboard2">
+                    <img class="card-img-top" src="holder.js/100px180/" alt="">
+                    <div class="card-body">
+                        <h4 class="card-title">Profit Details</h4>
+                        <p class="card-text ">₹27,503,00</p>
+                    </div>
+                </div>
+                <div class="card border-warning w-25 dashboard3">
+                    <img class="card-img-top" src="holder.js/100px180/" alt="">
+                    <div class="card-body">
+                        <h4 class="card-title text-white">Buyer Data Table</h4>
+                        <p class="card-text"><i class="icon-head">View List</i></p>
+                    </div>
+                </div>
             </div>
             <div class="row d-flex justify-content-around pt-5">
-            <div class="card border-danger w-50">
-              <img class="card-img-top" src="holder.js/100px180/" alt="">
-              <div class="card-body">
-                <h4 class="card-title">Product Progress Details</h4>
-                <div class="progress">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" role="progressbar"
-                        style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
+                <div class="card border-danger w-50">
+                    <img class="card-img-top" src="holder.js/100px180/" alt="">
+                    <div class="card-body">
+                        <h4 class="card-title">Product Progress Details</h4>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary"
+                                role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0"
+                                aria-valuemax="100">50%</div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
             </div>
 
         </div>

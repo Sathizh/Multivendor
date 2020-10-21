@@ -7157,3 +7157,38 @@ video {
     -webkit-appearance: none;
     margin: 0;
 }
+.dashboard1 {
+    background: #56ccf2; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+        to right,
+        #2f80ed,
+        #56ccf2
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+        to right,
+        #2f80ed,
+        #56ccf2
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.dashboard2 {
+    background: rgb(63, 247, 136);
+    background: linear-gradient(
+        90deg,
+        rgba(63, 247, 136, 1) 1%,
+        rgba(0, 255, 217, 1) 100%
+    );
+}
+.dashboard3 {
+    color: white;
+    background: #f12711; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+        to right,
+        #f5af19,
+        #f12711
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+        to right,
+        #f5af19,
+        #f12711
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
