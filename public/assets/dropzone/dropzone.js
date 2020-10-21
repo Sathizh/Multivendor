@@ -323,7 +323,7 @@ function (_Emitter) {
         /**
          * Can be used to limit the maximum number of files that will be handled by this Dropzone
          */
-        maxFiles: null,
+        maxFiles: 5,
 
         /**
          * An optional object to send additional headers to the server. Eg:
@@ -2110,7 +2110,7 @@ function (_Emitter) {
 
       fileReader.readAsDataURL(file);
     } // `mockFile` needs to have these attributes:
-    // 
+    //
     //     { name: 'name', size: 12345, imageUrl: '' }
     //
     // `callback` will be invoked when the image has been downloaded and displayed.

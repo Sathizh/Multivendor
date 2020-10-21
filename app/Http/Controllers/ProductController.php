@@ -89,4 +89,8 @@ class ProductController extends Controller
         return view('vendor.vendor_my_products')->with('products',$products);
 
     }
+    public function img(Request $request)
+    {
+        # code...
+    }
 }

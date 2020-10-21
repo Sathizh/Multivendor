@@ -7151,3 +7151,9 @@ video {
     margin-right: 0;
     margin-left: 8px;
 }
+.without_arrow::-webkit-outer-spin-button,
+.without_arrow::-webkit-inner-spin-button {
+    -moz-appearance: textfield;
+    -webkit-appearance: none;
+    margin: 0;
+}

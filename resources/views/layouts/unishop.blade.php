@@ -40,6 +40,9 @@
     <!-- Modernizr-->
     <script src="{{ asset('assets/js/modernizr.min.js') }}"></script>
 
+    {{-- ckeditor --}}
+    <script src="https://cdn.ckeditor.com/4.15.0/standard/ckeditor.js"></script>
+
 </head>
 <!-- Body-->
 <!-- Photoswipe container-->
@@ -632,23 +635,22 @@
             <div class="lang-currency-switcher-wrap">
                 <div class="lang-currency-switcher dropdown-toggle"><span class="language"><img alt="English"
                             src="{{ asset('assets/img/flags/GB.png') }}"></span><span class="currency">$ USD</span>
-                </div>
-                <div class="dropdown-menu">
-                    <div class="currency-select">
-                        <select class="form-control form-control-rounded form-control-sm">
-                            <option value="usd">$ USD</option>
-                            <option value="usd">€ EUR</option>
-                            <option value="usd">£ UKP</option>
-                            <option value="usd">¥ JPY</option>
-                        </select>
-                    </div><a class="dropdown-item" href="#"><img src="{{ asset('assets/img/flags/FR.png') }}"
-                            alt="Français">Français</a><a class="dropdown-item" href="#"><img
-                            src="{{ asset('assets/img/flags/DE.png') }}" alt="Deutsch">Deutsch</a><a
-                        class="dropdown-item" href="#"><img src="{{ asset('assets/img/flags/IT.png') }}"
-                            alt="Italiano">Italiano</a>
-                </div>
-            </div>
-        </div> --}}
+    </div>
+    <div class="dropdown-menu">
+        <div class="currency-select">
+            <select class="form-control form-control-rounded form-control-sm">
+                <option value="usd">$ USD</option>
+                <option value="usd">€ EUR</option>
+                <option value="usd">£ UKP</option>
+                <option value="usd">¥ JPY</option>
+            </select>
+        </div><a class="dropdown-item" href="#"><img src="{{ asset('assets/img/flags/FR.png') }}"
+                alt="Français">Français</a><a class="dropdown-item" href="#"><img
+                src="{{ asset('assets/img/flags/DE.png') }}" alt="Deutsch">Deutsch</a><a class="dropdown-item"
+            href="#"><img src="{{ asset('assets/img/flags/IT.png') }}" alt="Italiano">Italiano</a>
+    </div>
+    </div>
+    </div> --}}
     </div>
     <!-- Navbar-->
     <!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page.-->
@@ -670,15 +672,15 @@
             </div>
         </div>
         <!-- Main Navigation-->
-        <nav class="site-menu pl-5">
+        <nav class="site-menu pl-5 d-flex justify-content-around">
             <ul>
                 <li class="has-megamenu"><a href="{{ route('home') }}"><span>Home</span></a>
 
                 </li>
                 <li><a href="shop-grid-ls.html"><span>Shop</span></a></li>
-                    {{-- <ul class="sub-menu"> --}}
-                        <li><a href="shop-categories.html"><span>Shop Categories</span></a></li>
-                        {{-- <li class="has-children"><a href="shop-grid-ls.html"><span>Shop Grid</span></a>
+                {{-- <ul class="sub-menu"> --}}
+                <li><a href="shop-categories.html"><span>Shop Categories</span></a></li>
+                {{-- <li class="has-children"><a href="shop-grid-ls.html"><span>Shop Grid</span></a>
                             <ul class="sub-menu">
                                 <li><a href="shop-grid-ls.html">Grid Left Sidebar</a></li>
                                 <li><a href="shop-grid-rs.html">Grid Right Sidebar</a></li>
@@ -692,18 +694,18 @@
                                 <li><a href="shop-list-ns.html">List No Sidebar</a></li>
                             </ul>
                         </li> --}}
-                        {{-- <li><a href="shop-single.html">Single Product</a></li> --}}
-                        <li><a href="cart.html"><span>Cart</span></a></li>
-                        <li class="has-children"><a href="checkout-address.html"><span>Checkout</span></a>
-                            <ul class="sub-menu">
-                                <li><a href="checkout-address.html">Address</a></li>
-                                <li><a href="checkout-shipping.html">Shipping</a></li>
-                                <li><a href="checkout-payment.html">Payment</a></li>
-                                <li><a href="checkout-review.html">Review</a></li>
-                                <li><a href="checkout-complete.html">Complete</a></li>
-                            </ul>
-                        </li>
-                    {{-- </ul> --}}
+                {{-- <li><a href="shop-single.html">Single Product</a></li> --}}
+                <li><a href="cart.html"><span>Cart</span></a></li>
+                <li class="has-children"><a href="checkout-address.html"><span>Checkout</span></a>
+                    <ul class="sub-menu">
+                        <li><a href="checkout-address.html">Address</a></li>
+                        <li><a href="checkout-shipping.html">Shipping</a></li>
+                        <li><a href="checkout-payment.html">Payment</a></li>
+                        <li><a href="checkout-review.html">Review</a></li>
+                        <li><a href="checkout-complete.html">Complete</a></li>
+                    </ul>
+                </li>
+                {{-- </ul> --}}
 
                 {{-- <li class="has-megamenu"><a href="#"><span>Mega Menu</span></a>
                     <ul class="mega-menu">
@@ -840,10 +842,12 @@
                         </li>
                     </ul>
                 </li> --}}
-                <li class="w-25 pl-2 pt-3"><span><form class="input-group form-group" method="get"><span class="input-group-btn">
-                        <button type="submit"><i class="icon-search"></i></button></span>
-                    <input class="form-control w-100" type="search" placeholder="Search site">
-                </form></span></li>
+                <li class="pt-3"><span>
+                        <form class="input-group form-group" method="get"><span class="input-group-btn">
+                                <button type="submit"><i class="icon-search"></i></button></span>
+                            <input class="form-control w-100" type="search" placeholder="Search site">
+                        </form>
+                    </span></li>
             </ul>
         </nav>
         <!-- Toolbar-->
@@ -1089,9 +1093,15 @@
     <script src="{{ asset('assets/js/vendor.min.js') }}"></script>
     <script src="{{ asset('assets/js/scripts.min.js') }}"></script>
     <script src="{{ asset('assets/js/myscript.js') }}"></script>
+
     <!-- Customizer scripts-->
     <script src="{{ asset('assets/customizer/customizer.min.js') }}"></script>
-    <script src="{{ asset('assets/dropzone/min/dropzone.min.js') }}"></script>
+
+    {{-- dropzone --}}
+    <script src="{{ asset('assets/dropzone/dropzone.js') }}"></script>
+
+
+
     @include('auth.script')
 </body>
 
