@@ -37,8 +37,19 @@
       })(window,document,'script','dataLayer','GTM-T4DJFPZ');
 
     </script> --}}
+    {{-- ajax --}}
+    <!-- jQuery and JS bundle w/ Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous">
+    </script>
     <!-- Modernizr-->
     <script src="{{ asset('assets/js/modernizr.min.js') }}"></script>
+
+    {{-- dropzone --}}
+    <script src="{{ asset('assets/dropzone/dropzone.js') }}"></script>
 
     {{-- ckeditor --}}
     <script src="https://cdn.ckeditor.com/4.15.0/standard/ckeditor.js"></script>
@@ -896,7 +907,7 @@
                             <li><a href="{{ route('customer.orders') }}">Orders List</a></li>
                             <li><a href="{{ route('wishlist') }}">Wishlist</a></li>
                             <li class="sub-menu-separator"></li>
-                            <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
+                            <li><a class="nav-link" href="{{ route('login_register') }}">{{ __('Login') }}</a></li>
                         </ul>
                     </div>
                     @endguest
@@ -1006,7 +1017,7 @@
                     <div class="col-lg-3 col-md-6">
                         <!-- Mobile App Buttons-->
                         <section class="widget widget-light-skin">
-                            <h3 class="widget-title">Our Mobile App</h3><a
+                            <h3 class="widget-title">Mobile App will Comming Soon</h3><a
                                 class="market-button apple-button mb-light-skin" href="#"><span
                                     class="mb-subtitle">Download on
                                     the</span><span class="mb-title">App
@@ -1037,7 +1048,7 @@
                         <section class="widget widget-links widget-light-skin">
                             <h3 class="widget-title">Account &amp; Shipping Info</h3>
                             <ul>
-                                <li><a href="#">Your Account</a></li>
+                                <li><a href="{{ route('customer.profile') }}">Your Account</a></li>
                                 <li><a href="#">Shipping Rates & Policies</a></li>
                                 <li><a href="#">Refunds & Replacements</a></li>
                                 <li><a href="#">Taxes</a></li>
@@ -1081,12 +1092,12 @@
                 </div>
                 <!-- Copyright-->
                 <p class="footer-copyright">© All rights reserved. Made with &nbsp;<i
-                        class="icon-heart text-danger"></i><a href="http://rokaux.com/" target="_blank"> &nbsp;by
-                        rokaux</a></p>
+                        class="icon-heart text-danger"></i><a href="http://sathizh.hostsz.tk/" target="_blank"> &nbsp;by
+                        Sathish</a></p>
             </div>
         </footer>
     </div>
-    <!-- Back To Top Button--><a class="scroll-to-top-btn" href="#"><i class="icon-arrow-up"></i></a>
+    <!-- Back To Top Button--><a class="scroll-to-top-btn" id="scroll_top" href="#"><i class="icon-arrow-up"></i></a>
     <!-- Backdrop-->
     <div class="site-backdrop"></div>
     <!-- JavaScript (jQuery) libraries, plugins and custom scripts-->
@@ -1097,8 +1108,6 @@
     <!-- Customizer scripts-->
     <script src="{{ asset('assets/customizer/customizer.min.js') }}"></script>
 
-    {{-- dropzone --}}
-    <script src="{{ asset('assets/dropzone/dropzone.js') }}"></script>
 
 
 

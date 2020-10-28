@@ -24,7 +24,7 @@ Route::get('login/github/redirect', 'Auth\LoginController@githubRedirect');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('login_register', function () {
     return view('auth.login&register');
-});
+})->name('login_register');
 // Route::get('/product/{product}', 'HomeController@single_product')->name('product.details');
 
 Route::get('/product/{product}', function (Product $product) {
@@ -87,3 +87,9 @@ Route::post('/create_shop','shopcontroller@create')->name('shop.create')->middle
 Route::post('/register/checkphone', 'Auth\RegisterController@phonevalidation')->name('email.phone');
 Route::post('/shop_register/checkgst', 'HomeController@GSTvalidation')->name('shop.gst');
 
+// DropZone
+Route::post('dropzone/upload', 'ProductController@upload')->name('dropzone.upload');
+
+Route::get('dropzone/fetch', 'ProductController@fetch')->name('dropzone.fetch');
+
+Route::get('dropzone/delete', 'ProductController@delete')->name('dropzone.delete');

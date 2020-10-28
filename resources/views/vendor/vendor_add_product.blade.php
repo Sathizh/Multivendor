@@ -40,7 +40,7 @@
 
             </nav>
         </div>
-        <div class="col-lg-8" id="scroll_top">
+        <div class="col-lg-8">
             <div class="padding-top-2x mt-2 hidden-lg-up"></div>
             <ul class="nav nav-tabs nav-justified" role="tablist">
                 <li class="nav-item"><a class="nav-link active" id="b_d" href="#basic_details" data-toggle="tab"
@@ -157,22 +157,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-md">
-                            <div class="form-group">
-                                <label for="product_discription">Discription</label>
 
-                                <textarea class="form-control" name="discription" id="product_discription" cols="10"
-                                    rows="5" placeholder="Say something about your Product..." required></textarea>
-                                <script>
-                                    CKEDITOR.replace( 'discription' );
-
-                                    var e = CKEDITOR.instances['discription']
-                                    e.on( 'blur', function( event ) {
-                                    alert( e.getData() );
-                                    });
-                                </script>
-                            </div>
-                        </div>
                         <div class="col-12">
                             <hr class="mt-2 mb-3">
                             <div class="d-flex flex-wrap justify-content-between align-items-center">
@@ -182,17 +167,54 @@
                                 {{-- <button class="btn btn-primary margin-right-none" id="create_shop" type="submit"></button> --}}
                             </div>
                         </div>
+                        <input type="hidden" name="product_discription" id="product_discription" value="No Discription">
                     </form>
                 </div>
                 {{-- image --}}
                 <div class="tab-pane fade mb-5" id="image" role="tabpanel">
-                    <form action="/product_image_upload" id="my-awesome-dropzone" class="dropzone" method="POST">
+                    {{-- <form action="/product_image_upload" id="my-awesome-dropzone" class="dropzone" method="POST">
                         @csrf
                         <div class="fallback">
                             <input type="file" name="file" multiple />
                         </div>
                     </form>
+                    <div align="center">
+                        <button type="button" class="btn btn-info" id="submit-all">Upload</button>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Uploaded Image</h3>
+                        </div>
+                        <div class="panel-body" id="uploaded_image">
+
+                        </div>
+                    </div> --}}
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Select Image</h3>
+                        </div>
+                        <div class="panel-body">
+                            <form id="dropzoneForm" class="dropzone" action="{{ route('dropzone.upload') }}">
+                                @csrf
+                            </form>
+                            <div align="center">
+                                <input type="submit" class="btn btn-info" id="submit-all" value="Upload">
+                                {{-- <button type="button" class="btn btn-info" id="submit-all">Upload</button> --}}
+                            </div>
+                        </div>
+                        <br />
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Uploaded Image</h3>
+                            </div>
+                            <div class="panel-body" id="uploaded_image">
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+
 
                 {{-- preview --}}
                 <div class="tab-pane fade" id="preview" role="tabpanel">
@@ -227,15 +249,15 @@
                                 </div>
 
                                 <ul class="product-thumbnails">
-                                    <li class="active"><a href="#one"><img class="product_preview_image"
+                                    <li class="active"><a href="#one"><img class="product_preview_image_thumb"
                                                 src="{{ asset('default.jpg') }}" alt="Product"></a></li>
-                                    <li><a href="#two"><img class="product_preview_image"
+                                    <li><a href="#two"><img class="product_preview_image_thumb"
                                                 src="{{ asset('default.jpg') }}" alt="Product"></a></li>
-                                    <li><a href="#three"><img class="product_preview_image"
+                                    <li><a href="#three"><img class="product_preview_image_thumb"
                                                 src="{{ asset('default.jpg') }}" alt="Product"></a></li>
-                                    <li><a href="#four"><img class="product_preview_image"
+                                    <li><a href="#four"><img class="product_preview_image_thumb"
                                                 src="{{ asset('default.jpg') }}" alt="Product"></a></li>
-                                    <li><a href="#five"><img class="product_preview_image"
+                                    <li><a href="#five"><img class="product_preview_image_thumb"
                                                 src="{{ asset('default.jpg') }}" alt="Product"></a></li>
                                 </ul>
                             </div>
@@ -251,13 +273,12 @@
                             <h2 class="padding-top-1x text-normal" id="product_preview_name">Your Product name here</h2>
                             <span class="h2 d-block" id="product_preview_price">
                                 ₹000.00</span>
-                            <p id="product_preview_discription"><b>sample discription</b> Lorem ipsum dolor sit amet
-                                consectetur adipisicing elit. Incidunt aspernatur explicabo, excepturi ab nisi facere,
-                                pariatur veniam voluptate recusandae asperiores porro inventore! Ea odio earum placeat
-                                fuga eos pariatur quia!</p>
+
+
                             <span id="product_preview_brand"><b>Brand:</b>Your Brand Here</span><br>
                             <span><b>Weight:</b><span id="product_preview_weight"> 2</span> <span
-                                    id="product_preview_measur">Kg</span></span>
+                                    id="product_preview_measur">Kg</span></span><br>
+                            <span><b>Vendor :</b> {{ $details->shop_name }}</span>
                             <hr class="mb-3">
                             <div class="d-flex flex-wrap justify-content-between">
                                 <div class="entry-share mt-2 mb-2"><span class="text-muted">Share:</span>
@@ -283,6 +304,19 @@
                                 </div>
                             </div>
 
+                        </div>
+                        <div id="data_show"></div>
+                        <div class="col-md-12 mt-4">
+                            <div class="form-group">
+                                <h3 for="product_preview_discription">Discription</h3>
+
+                                <textarea class="form-control" name="discription" id="product_preview_discription"
+                                    cols="10" rows="5" placeholder="Say something about your Product..."
+                                    required></textarea>
+                                <script>
+                                    CKEDITOR.replace( 'discription' );
+                                </script>
+                            </div>
                         </div>
 
                     </div>
