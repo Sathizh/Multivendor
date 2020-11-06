@@ -81,14 +81,14 @@ class ProductController extends Controller
             $path=$file->move(public_path('\assets\img\product_img/'), $filenameToStore);
             // Upload DB
             $img = new Image;
-            $img->product_id=$id;
+            $img->product_id=$latest[0]->id;
             $img->file_name=$filenameToStore;
             $img->save();
             }
         }else{
             $filenameToStore='noimage.jpg';
             $img = new Image;
-            $img->product_id=$id;
+            $img->product_id=$latest[0]->id;
             $img->file_name=$filenameToStore;
             $img->save();
         }

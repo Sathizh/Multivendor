@@ -9,26 +9,51 @@
             <!-- Poduct Gallery-->
             <div class="col-md-6">
                 <div class="product-gallery"><span class="product-badge text-danger">30% Off</span>
-
+                    @php
+                    $imgs=\App\Image::where('product_id',$details->id)->get();
+                    $counter1=0;
+                    $counter2=0;
+                    @endphp
+                    @if (count($imgs))
                     <div class="product-carousel owl-carousel gallery-wrapper">
-                        <div class="gallery-item" data-hash="one"><a href="{{ asset('default.jpg') }}"
-                                data-size="1000x667"><img src="{{ asset('default.jpg') }}" alt="Product"></a></div>
-                        <div class="gallery-item" data-hash="two"><a href="{{ asset('default.jpg') }}"
-                                data-size="1000x667"><img src="{{ asset('default.jpg') }}" alt="Product"></a></div>
-                        <div class="gallery-item" data-hash="three"><a href="{{ asset('default.jpg') }}"
-                                data-size="1000x667"><img src="{{ asset('default.jpg') }}" alt="Product"></a></div>
-                        <div class="gallery-item" data-hash="four"><a href="{{ asset('default.jpg') }}"
-                                data-size="1000x667"><img src="{{ asset('default.jpg') }}" alt="Product"></a></div>
-                        <div class="gallery-item" data-hash="five"><a href="{{ asset('default.jpg') }}"
-                                data-size="1000x667"><img src="{{ asset('default.jpg') }}" alt="Product"></a></div>
+                        @foreach ($imgs as $img)
+                        @php
+                        $counter1+=1;
+                        @endphp
+                        <div class="gallery-item" data-hash="{{ $counter1 }}"><a
+                                href="/assets/img/product_img/{{ $img->file_name }}" data-size="1000x667"><img
+                                    src="/assets/img/product_img/{{ $img->file_name }}" alt="Product"></a>
+                        </div>
+                        @endforeach
                     </div>
                     <ul class="product-thumbnails">
-                        <li class="active"><a href="#one"><img src="{{ asset('default.jpg') }}" alt="Product"></a></li>
-                        <li><a href="#two"><img src="{{ asset('default.jpg') }}" alt="Product"></a></li>
-                        <li><a href="#three"><img src="{{ asset('default.jpg') }}" alt="Product"></a></li>
-                        <li><a href="#four"><img src="{{ asset('default.jpg') }}" alt="Product"></a></li>
-                        <li><a href="#five"><img src="{{ asset('default.jpg') }}" alt="Product"></a></li>
+                        @foreach ($imgs as $img)
+                        @php
+                        $counter2+=1;
+                        @endphp
+                        <li class="active"><a href="#{{ $counter2 }}"><img
+                                    src="/assets/img/product_img/{{ $img->file_name }}" alt="Product"></a></li>
+                        @endforeach
                     </ul>
+                    @else
+                    <div class="product-carousel owl-carousel gallery-wrapper">
+                        @php
+                        $counter1+=1;
+                        // dd("sample else");
+                        @endphp
+                        <div class="gallery-item" data-hash="{{ $counter1 }}"><a href="{{ asset('default.jpg') }}"
+                                data-size="1000x667"><img src="{{ asset('default.jpg') }}" alt="Product"></a>
+                        </div>
+                    </div>
+                    <ul class="product-thumbnails">
+                        @php
+                        $counter2+=1;
+                        @endphp
+                        <li class="active"><a href="#{{ $counter2 }}"><img src="{{ asset('default.jpg') }}"
+                                    alt="Product"></a></li>
+                    </ul>
+                    @endif
+
                 </div>
             </div>
             <!-- Product Info-->
@@ -39,11 +64,16 @@
                 </div><span class="text-muted align-middle">&nbsp;&nbsp;4.2 | 3 customer reviews</span>
                 <h2 class="padding-top-1x text-normal">{{ $details->name }}</h2><span class="h2 d-block">
                     ₹{{ $details->price }}</span>
-                <p id="description">{{ $details->description }}</p>
-
+                <span id="product_preview_brand"><b>Brand:</b>{{ $details->product_brand }}</span><br>
+                <span><b>Weight:</b><span id="product_preview_weight"> {{ $details->product_weight }}</span> <span
+                        id="product_preview_measur">{{ $details->product_measur }}</span></span><br>
+                @php
+                $shop=\App\Shop::where('user_id',$details->user_id)->get();
+                @endphp
+                <span><b>Vendor :</b> {{ $shop[0]->shop_name }}</span>
                 <script>
                     jQuery(document).ready(function () {
-                        console.log(`$details->description`);
+                        jQuery('#description').html(`{!! $details->description !!}`);
                     });
                 </script>
                 <hr class="mb-3">
@@ -62,10 +92,10 @@
                     <div class="sp-buttons mt-2 mb-2">
                         <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip"
                             title="Whishlist"><i class="icon-heart"></i></button>
-                        <button class="btn btn-primary" data-toast data-toast-type="success"
-                            data-toast-position="topRight" data-toast-icon="icon-circle-check"
-                            data-toast-title="Product" data-toast-message="successfuly added to cart!"><i
-                                class="icon-bag"></i> Add to Cart</button>
+                        <a href="{{ route('cart.add', $details->id) }}" class="btn btn-outline-primary btn-sm"
+                            data-toast data-toast-type="success" data-toast-position="topRight"
+                            data-toast-icon="icon-circle-check" data-toast-title="Product"
+                            data-toast-message="successfuly added to cart!">Add to cart</a>
                     </div>
                 </div>
             </div>
@@ -81,37 +111,11 @@
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane fade show active" id="description" role="tabpanel">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error blanditiis a, deserunt magnam
-                            pariatur quam suscipit quae. Veniam, deserunt reprehenderit quasi hic recusandae itaque
-                            omnis fugiat animi architecto facilis repellendus. Commodi dolorem, eius consectetur. Amet
-                            maiores nemo at nobi s aspernatur velit, sequi odio, a veritatis inventore autem esse
-                            provident in? Placeat, sunt!</p>
-                        <p class="mb-30">Iste assumenda, vitae, aliquam excepturi libero quia ullam quisquam tenetur id
-                            sint labore. Pariatur praesentium velit, fugit facere maxime voluptates optio qui? Quidem
-                            obcaecati necessitatibus rem aspernatur, mollitia, assumenda explicabo numquam minus eos
-                            sapiente totam dicta, laborum dolorum! Vitae distinctio quos non ut fugiat.</p>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <dl>
-                                    <dt>Materials:</dt>
-                                    <dd>Leather, Cotton, Rubber, Foam</dd>
-                                    <dt>Available Sizes:</dt>
-                                    <dd>8.5, 9.0, 9.5, 10.0, 10.5, 11.0, 11.5</dd>
-                                    <dt>Available Colors:</dt>
-                                    <dd>White/Red/Blue, Black/Orange/Green</dd>
-                                </dl>
-                            </div>
-                            <div class="col-sm-6">
-                                <dl>
-                                    <dt>Model Year:</dt>
-                                    <dd>2016</dd>
-                                    <dt>Manufacturer:</dt>
-                                    <dd>Reebok Inc.</dd>
-                                    <dt>Made In:</dt>
-                                    <dd>Taiwan</dd>
-                                </dl>
-                            </div>
-                        </div>
+                        <script>
+                            jQuery(document).ready(function () {
+                                                jQuery('#description').html(`{!! $details->description !!}`);
+                                            });
+                        </script>
                     </div>
                     <div class="tab-pane fade" id="reviews" role="tabpanel">
                         <!-- Review-->

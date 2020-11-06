@@ -19,11 +19,13 @@
                 </div>
             </aside>
             <nav class="list-group">
-                <a class="list-group-item with-badge" href="{{ route('shop.dashboard') }}"><i class="icon-bar-graph-2"></i>dashboard</a>
+                <a class="list-group-item with-badge" href="{{ route('shop.dashboard') }}"><i
+                        class="icon-bar-graph-2"></i>dashboard</a>
                 <a class="list-group-item active" href="{{ route('shop.profile') }}"><i class="icon-head"></i>Shop
                     Profile</a>
                 <a class="list-group-item " href="{{ route('product.add') }}"><i class="icon-plus"></i>Add Product</a>
-                <a class="list-group-item with-badge" href="#"><i class="icon-box"></i>My Products</a>
+                <a class="list-group-item with-badge" href="{{ route('product.list')}}"><i class="icon-box"></i>My
+                    Products</a>
                 <a class="list-group-item with-badge" href="{{ route('home') }}"><i class="icon-bag"></i>Back to
                     <span style="color: orangered">MulVenZ</span></a>
 

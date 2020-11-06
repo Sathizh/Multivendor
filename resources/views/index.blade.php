@@ -32,8 +32,12 @@
                 <div class="product-card">
                     <div class="rating-stars"><i class="icon-star filled"></i><i class="icon-star filled"></i><i
                             class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star"></i>
-                    </div><a class="product-thumb" href="{{ route('details',$product->id) }}"><img
-                            src="{{ asset('default.jpg') }}" alt="MulVenZ"></a>
+                    </div><a class="product-thumb" href="{{ route('details',$product->id) }}">
+                        @php
+                        $img=\App\Image::where('product_id',$product->id)->get();
+                        @endphp
+                        <img class="card-img-top" src="/assets/img/product_img/{{ $img[3]->file_name }}"
+                            alt="MulVenZ"></a>
                     <h3 class="product-title"><a href="{{ route('details',$product->id) }}">{{ $product->name }}</a>
                     </h3>
                     <h4 class="product-price">₹ {{ $product->price }}</h4>

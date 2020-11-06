@@ -4,6 +4,7 @@ ThankYour for the purchase Come, Again
 Your Receipt
 <h4>Your Order ID : {{ $order->id }}</h4>
 @php
+// condition needed to superate vendor
 $order=App\Order::findOrFail($order->id);
 $items=$order->order_items;
 @endphp
@@ -21,14 +22,8 @@ $items=$order->order_items;
         <tr>
             <td scope="row">{{ $item['name'] }}</td>
             <td>{{ $item['quantity'] }}</td>
-            <td>₹ {{ $item['price'] }}</td>
         </tr>
         @endforeach
-        <tr>
-            <td>Delivery</td>
-            <td></td>
-            <td>₹ 50</td>
-        </tr>
     </tbody>
 </table>
 
@@ -36,7 +31,7 @@ $items=$order->order_items;
 
 
 @component('mail::button', ['url' => ''])
-Open Invoice
+product details
 @endcomponent
 
 Thanks,<br>

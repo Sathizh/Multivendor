@@ -7,7 +7,10 @@
             @foreach ($Products as $product)
             <div class="col-4">
                 <div class="card">
-                    <img class="card-img-top" src="{{ asset('default.jpg') }}" alt="MulVenZ">
+                    @php
+                    $imgs=\App\Image::where('product_id',$details->id)->get();
+                    @endphp
+                    <img class="card-img-top" src="/assets/img/product_img/{{ $img[0]->file_name }}" alt="MulVenZ">
                     <div class="card-body">
                         <h4 class="card-title">{{ $product->name }}</h4>
                         <p class="card-text">{{ $product->description }}</p>

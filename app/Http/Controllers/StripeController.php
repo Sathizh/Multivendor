@@ -44,7 +44,12 @@ class StripeController extends Controller
                 $order->save();
 
         \Cart::session(auth()->id())->clear();
+        // mail to user
         Mail::to($order->user->email)->send(new OrderPaid($order));
+        // mail to vendor
+        // for loop needed for itrate diffrent item vendors
+        Mail::to($order->user->email)->send(new ToVendor($order));
+
         return redirect()->route('home')->withMessage('Payment successfull!');
     }
 }

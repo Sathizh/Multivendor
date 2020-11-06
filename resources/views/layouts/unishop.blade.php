@@ -126,7 +126,7 @@
       </div>
     </div> --}}
     <!-- Open Ticket Modal-->
-    <div class="modal fade" id="orderDetails" tabindex="-1">
+    {{-- <div class="modal fade" id="orderDetails" tabindex="-1">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
@@ -148,55 +148,55 @@
                                     <td>
                                         <div class="product-item"><a class="product-thumb" href="shop-single.html"><img
                                                     src="{{ asset('assets/img/shop/cart/01.jpg') }}" alt="Product"></a>
-                                            <div class="product-info">
-                                                <h4 class="product-title"><a href="shop-single.html">Unionbay
-                                                        Park<small>x 1</small></a></h4><span><em>Size:</em>
-                                                    10.5</span><span><em>Color:</em> Dark Blue</span>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="text-center text-lg text-medium">$43.90</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="product-item"><a class="product-thumb" href="shop-single.html"><img
-                                                    src="{{ asset('assets/img/shop/cart/02.jpg') }}" alt="Product"></a>
-                                            <div class="product-info">
-                                                <h4 class="product-title"><a href="shop-single.html">Daily Fabric
-                                                        Cap<small>x 2</small></a></h4><span><em>Size:</em>
-                                                    XL</span><span><em>Color:</em> Black</span>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="text-center text-lg text-medium">$24.89</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="product-item"><a class="product-thumb" href="shop-single.html"><img
-                                                    src="{{ asset('assets/img/shop/cart/03.jpg') }}" alt="Product"></a>
-                                            <div class="product-info">
-                                                <h4 class="product-title"><a href="shop-single.html">Cole Haan
-                                                        Crossbody<small>x 1</small></a></h4><span><em>Size:</em>
-                                                    -</span><span><em>Color:</em> Turquoise</span>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="text-center text-lg text-medium">$200.00</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <hr class="mb-3">
-                    <div class="d-flex flex-wrap justify-content-between align-items-center pb-2">
-                        <div class="px-2 py-1">Subtotal: <span class='text-medium'>$289.68</span></div>
-                        <div class="px-2 py-1">Shipping: <span class='text-medium'>$22.50</span></div>
-                        <div class="px-2 py-1">Tax: <span class='text-medium'>$3.42</span></div>
-                        <div class="text-lg px-2 py-1">Total: <span class='text-medium'>$315.60</span></div>
-                    </div>
+    <div class="product-info">
+        <h4 class="product-title"><a href="shop-single.html">Unionbay
+                Park<small>x 1</small></a></h4><span><em>Size:</em>
+            10.5</span><span><em>Color:</em> Dark Blue</span>
+    </div>
+    </div>
+    </td>
+    <td class="text-center text-lg text-medium">$43.90</td>
+    </tr>
+    <tr>
+        <td>
+            <div class="product-item"><a class="product-thumb" href="shop-single.html"><img
+                        src="{{ asset('assets/img/shop/cart/02.jpg') }}" alt="Product"></a>
+                <div class="product-info">
+                    <h4 class="product-title"><a href="shop-single.html">Daily Fabric
+                            Cap<small>x 2</small></a></h4><span><em>Size:</em>
+                        XL</span><span><em>Color:</em> Black</span>
                 </div>
             </div>
-        </div>
+        </td>
+        <td class="text-center text-lg text-medium">$24.89</td>
+    </tr>
+    <tr>
+        <td>
+            <div class="product-item"><a class="product-thumb" href="shop-single.html"><img
+                        src="{{ asset('assets/img/shop/cart/03.jpg') }}" alt="Product"></a>
+                <div class="product-info">
+                    <h4 class="product-title"><a href="shop-single.html">Cole Haan
+                            Crossbody<small>x 1</small></a></h4><span><em>Size:</em>
+                        -</span><span><em>Color:</em> Turquoise</span>
+                </div>
+            </div>
+        </td>
+        <td class="text-center text-lg text-medium">$200.00</td>
+    </tr>
+    </tbody>
+    </table>
     </div>
+    <hr class="mb-3">
+    <div class="d-flex flex-wrap justify-content-between align-items-center pb-2">
+        <div class="px-2 py-1">Subtotal: <span class='text-medium'>$289.68</span></div>
+        <div class="px-2 py-1">Shipping: <span class='text-medium'>$22.50</span></div>
+        <div class="px-2 py-1">Tax: <span class='text-medium'>$3.42</span></div>
+        <div class="text-lg px-2 py-1">Total: <span class='text-medium'>$315.60</span></div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div> --}}
     {{-- sell on mulvenz modal --}}
     <!-- Why How MulVenZ-->
     <div class="modal fade" id="modalScroll" tabindex="-1" role="dialog">
