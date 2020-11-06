@@ -6,7 +6,7 @@
     {{-- toast --}}
     <button class="btn btn-outline-secondary" id="field_empty_warning" data-toast="" data-toast-position="topRight"
         data-toast-type="warning" data-toast-icon="icon-flag" data-toast-title="Warning"
-        data-toast-message="Plsase fill all the Basic details">Warning
+        data-toast-message="Plsase fill all the Basic details & Select Images">Warning
         Bottom Right</button>
     <div class="row">
         @php
@@ -54,7 +54,8 @@
             <div class="tab-content">
                 <div class="tab-pane fade show active" id="basic_details" role="tabpanel">
                     <div class="padding-top-2x mt-2 hidden-lg-up"></div>
-                    <form class="row" action="/add_product" id="addd_product" method="post">
+                    <form class="row" action="/add_product" id="addd_product" method="post"
+                        enctype="multipart/form-data">
                         @csrf
                         <div class="col-md-6">
                             <div class="form-group">
@@ -168,50 +169,14 @@
                             </div>
                         </div>
                         <input type="hidden" name="product_discription" id="product_discription" value="No Discription">
-                    </form>
+
                 </div>
                 {{-- image --}}
                 <div class="tab-pane fade mb-5" id="image" role="tabpanel">
-                    {{-- <form action="/product_image_upload" id="my-awesome-dropzone" class="dropzone" method="POST">
-                        @csrf
-                        <div class="fallback">
-                            <input type="file" name="file" multiple />
-                        </div>
+                    <div class="fallback">
+                        <input type="file" name="product_img[]" multiple required />
+                    </div>
                     </form>
-                    <div align="center">
-                        <button type="button" class="btn btn-info" id="submit-all">Upload</button>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Uploaded Image</h3>
-                        </div>
-                        <div class="panel-body" id="uploaded_image">
-
-                        </div>
-                    </div> --}}
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Select Image</h3>
-                        </div>
-                        <div class="panel-body">
-                            <form id="dropzoneForm" class="dropzone" action="{{ route('dropzone.upload') }}">
-                                @csrf
-                            </form>
-                            <div align="center">
-                                <input type="submit" class="btn btn-info" id="submit-all" value="Upload">
-                                {{-- <button type="button" class="btn btn-info" id="submit-all">Upload</button> --}}
-                            </div>
-                        </div>
-                        <br />
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Uploaded Image</h3>
-                            </div>
-                            <div class="panel-body" id="uploaded_image">
-
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
 

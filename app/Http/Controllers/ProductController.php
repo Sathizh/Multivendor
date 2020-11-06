@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Image;
 use App\Product;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\File\File;
@@ -15,7 +16,16 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        dd($request);
+        // $files = $request->product_img;
+        // dd($files);
+        // if($request->product_img)
+        // {
+        //     // foreach ($files as $file) {
+        //     //     // $file->store('users/' . $this->user->id . '/messages');
+        //     // }
+        //     dd(count(collect($request->product_img)));
+        // }
+        // dd(count($request->product_img));
     }
 
     /**
@@ -36,7 +46,54 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $id=auth()->user()->id;
+
+        $Product=new Product;
+
+        $Product->user_id=$id;
+        $Product->name=$request->product_name;
+        $Product->price=$request->price;
+        $Product->quantity=$request->qty;
+        $Product->product_weight=$request->product_weight;
+        $Product->product_measur=$request->product_measur;
+        $Product->product_category=$request->product_category;
+        $Product->product_brand=$request->product_brand;
+        $Product->product_status=$request->product_status;
+        $Product->description=$request->product_discription;
+        $Product->save();
+
+        $latest = Product::where('user_id',$id)->orderBy('created_at','desc')->get();
+
+        $files = $request->product_img;
+
+        if($request->product_img)
+        {
+            foreach ($files as $file) {
+                // Get Filename with exetendsion
+            $filenameWithExt = $file->getClientOriginalName();
+            // Get just FileName
+            $filename=pathinfo($filenameWithExt,PATHINFO_FILENAME);
+            // Get just ext
+            $extension =$file->getClientOriginalExtension();
+            // Filename to store
+            $filenameToStore= $latest[0]->id.'_'.$filename.'_'.time().'.'.$extension;
+            // Upload Image
+            $path=$file->move(public_path('\assets\img\product_img/'), $filenameToStore);
+            // Upload DB
+            $img = new Image;
+            $img->product_id=$id;
+            $img->file_name=$filenameToStore;
+            $img->save();
+            }
+        }else{
+            $filenameToStore='noimage.jpg';
+            $img = new Image;
+            $img->product_id=$id;
+            $img->file_name=$filenameToStore;
+            $img->save();
+        }
+
+        return \back()->with('product_create_message','product created successfully');
     }
 
     /**
@@ -94,44 +151,61 @@ class ProductController extends Controller
     {
         # code...
     }
-
-
-
-
-    // DropZone Functions
-
-    function upload(Request $request)
-    {
-     $image = $request->file('file');
-     $imageName = time() . '.' . $image->extension();
-
-     $image->move(public_path('\assets\img\product_img/'), $imageName);
-
-     return response()->json(['success' => $imageName]);
-    }
-
-    function fetch()
-    {
-     $images = \File::allFiles(public_path('\assets\img\product_img/'));
-     $output = '<div class="row">';
-     foreach($images as $image)
-     {
-      $output .= '
-      <div class="col-md-2" style="margin-bottom:16px;" align="center">
-                <img src="'.asset('public\assets\img\product_img/' . $image->getFilename()).'" class="img-thumbnail" width="175" height="175" style="height:175px;" />
-                <button type="button" class="btn btn-link remove_image" id="'.$image->getFilename().'">Remove</button>
-            </div>
-      ';
-     }
-     $output .= '</div>';
-     echo $output;
-    }
-
-    function delete(Request $request)
-    {
-     if($request->get('name'))
-     {
-      \File::delete(public_path('\assets\img\product_img/' . $request->get('name')));
-     }
-    }
 }
+
+
+
+
+//     // DropZone Functions
+
+//     function upload(Request $request)
+//     {
+//     //  $image = $request->file('file');
+//     //  $imageName = time() . '.' . $image->extension();
+
+//     //  $image->move(public_path('\assets\img\product_img/'), $filenameToStore);
+
+//       if($request->hasFile('file')){
+//             // Get Filename with exetendsion
+//             $filenameWithExt = $request->file('file')->getClientOriginalName();
+
+//             // Get just FileName
+//             $filename=pathinfo($filenameWithExt,PATHINFO_FILENAME);
+//             // Get just ext
+//             $extension =$request->file('file')->getClientOriginalExtension();
+//             // Filename to store
+//             $filenameToStore= $filename.'_'.time().'.'.$extension;
+//             // Upload Image
+//             $path=$request->file('file')->move(public_path('\assets\img\product_img/'), $filenameToStore);
+//         }else{
+//             $filenameToStore='noimage.jpg';
+//         }
+
+//      return response()->json(['success' => $filenameToStore]);
+//     }
+
+//     function fetch()
+//     {
+//      $images = \File::allFiles(public_path('\assets\img\product_img/'));
+//      $output = '<div class="row">';
+//      foreach($images as $image)
+//      {
+//       $output .= '
+//       <div class="col-md-2" style="margin-bottom:16px;" align="center">
+//                 <img src="'.asset('assets/img/product_img/' . $image->getFilename()).'" class="img-thumbnail" width="180" height="180"  />
+//                 <button type="button" class="btn btn-link remove_image" id="'.$image->getFilename().'">Remove</button>
+//             </div>
+//       ';
+//      }
+//      $output .= '</div>';
+//      echo $output;
+//     }
+
+//     function delete(Request $request)
+//     {
+//      if($request->get('name'))
+//      {
+//       \File::delete(public_path('\assets\img\product_img/' . $request->get('name')));
+//      }
+//     }
+// }

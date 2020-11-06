@@ -37,22 +37,30 @@
                 <div class="card border-primary w-25 dashboard1">
                     <img class="card-img-top" src="holder.js/100px180/" alt="">
                     <div class="card-body">
-                        <h4 class="card-title text-white">Number of Products</h4>
+                        <span class="card-title text-white h6 text-nowrap">Number of Products</span>
                         <p class="card-text text-white">183</p>
+                        <a href="#" class="">
+                            <p class="card-text h6 text-white"><i class="icon-box"> View Product List</i></p>
+                        </a>
                     </div>
                 </div>
                 <div class="card border-success w-25 dashboard2">
                     <img class="card-img-top" src="holder.js/100px180/" alt="">
                     <div class="card-body">
-                        <h4 class="card-title">Profit Details</h4>
-                        <p class="card-text ">₹27,503,00</p>
+                        <span class="card-title h6 text-nowrap">Profit Details</span>
+                        <p class="card-text h6">₹27,503,00</p>
+                        <a href="#" class="">
+                            <p class="card-text h5 text-danger"><i class="icon-bag"> View Order List</i></p>
+                        </a>
                     </div>
                 </div>
                 <div class="card border-warning w-25 dashboard3">
                     <img class="card-img-top" src="holder.js/100px180/" alt="">
                     <div class="card-body">
-                        <h4 class="card-title text-white">Buyer Data Table</h4>
-                        <p class="card-text"><i class="icon-head">View List</i></p>
+                        <span class="card-title text-white h6 text-nowrap">Buyers Data Table</span>
+                        <a href="#" class="">
+                            <p class="card-text h5 text-white text-center pt-4"><i class="icon-head"> View List</i></p>
+                        </a>
                     </div>
                 </div>
             </div>

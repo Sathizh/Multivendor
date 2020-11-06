@@ -29,12 +29,15 @@ jQuery(document).ready(function () {
     });
     jQuery('#field_empty_warning').hide();
     jQuery("#add_product").click(function (e) {
+        // console.log(jQuery('#product_img').val()==null)
         if (jQuery('#product_name').val() == ""
             || jQuery('#product_price').val() == ""
             || jQuery('#product_qty').val() == ""
             || jQuery('#product_weight').val() == ""
+            // || jQuery('#product_img').val() == null
         ) {
             // jQuery('#product_name').scrollTop("10px");
+            // console.log("sample")
             jQuery('#scroll_top').trigger("click");
             jQuery('#b_d').trigger("click");
             jQuery('#field_empty_warning').trigger("click");

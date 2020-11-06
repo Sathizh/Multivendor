@@ -68,8 +68,8 @@ Route::get('/dashboard', function () {
     return view('vendor.vendor_dashboard');
 })->name('shop.dashboard');
 Route::get('/product_add','ProductController@create')->name('product.add')->middleware('auth');
-Route::post('/add_product','ProductController@index')->name('shop.product.add')->middleware('auth');
-Route::post('/product_image_upload','ProductController@img')->middleware('auth');
+Route::post('/add_product','ProductController@store')->name('shop.product.add')->middleware('auth');
+// Route::post('/product_image_upload','ProductController@img')->middleware('auth');
 Route::get('/Shop/Profile','ShopController@shop_profile')->name('shop.profile')->middleware('auth');
 Route::get('/Shop/Profile_update','ShopController@shop_profile_update')->name('shop.profile.update')->middleware('auth');
 Route::get('/Dashboarda','HomeController@customer_address')->name('customer.address')->middleware('auth');
@@ -88,8 +88,8 @@ Route::post('/register/checkphone', 'Auth\RegisterController@phonevalidation')->
 Route::post('/shop_register/checkgst', 'HomeController@GSTvalidation')->name('shop.gst');
 
 // DropZone
-Route::post('dropzone/upload', 'ProductController@upload')->name('dropzone.upload');
+// Route::post('dropzone/upload', 'ProductController@upload')->name('dropzone.upload');
 
-Route::get('dropzone/fetch', 'ProductController@fetch')->name('dropzone.fetch');
+// Route::get('dropzone/fetch', 'ProductController@fetch')->name('dropzone.fetch');
 
-Route::get('dropzone/delete', 'ProductController@delete')->name('dropzone.delete');
+// Route::get('dropzone/delete', 'ProductController@delete')->name('dropzone.delete');

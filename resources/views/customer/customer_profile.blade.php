@@ -74,6 +74,9 @@
                         <input class="form-control" type="password" id="account-confirm-pass">
                     </div>
                 </div>
+                <div class="col-md-12 text-right">
+                    <a href="#">Change Profile photo </a>
+                </div>
                 <div class="col-12">
                     <hr class="mt-2 mb-3">
                     <div class="d-flex flex-wrap justify-content-between align-items-center">

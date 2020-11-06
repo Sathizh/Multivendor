@@ -985,6 +985,12 @@
             <span class="alert-close" data-dismiss="alert"></span><i class="icon-help"></i>&nbsp;&nbsp;<strong>Success
                 alert:</strong>{{ session('shop_update_message') }}</div>
         @endif
+        {{-- product_create_message --}}
+        @if (session('product_create_message'))
+        <div class="alert alert-success alert-dismissible fade show text-center margin-bottom-1x">
+            <span class="alert-close" data-dismiss="alert"></span><i class="icon-help"></i>&nbsp;&nbsp;<strong>Success
+                alert:</strong>{{ session('product_create_message') }}</div>
+        @endif
         <!-- Page Content-->
         @yield('content')
 

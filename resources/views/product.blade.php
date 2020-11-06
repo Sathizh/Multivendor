@@ -39,7 +39,13 @@
                 </div><span class="text-muted align-middle">&nbsp;&nbsp;4.2 | 3 customer reviews</span>
                 <h2 class="padding-top-1x text-normal">{{ $details->name }}</h2><span class="h2 d-block">
                     ₹{{ $details->price }}</span>
-                <p>{{ $details->description }}</p>
+                <p id="description">{{ $details->description }}</p>
+
+                <script>
+                    jQuery(document).ready(function () {
+                        console.log(`$details->description`);
+                    });
+                </script>
                 <hr class="mb-3">
                 <div class="d-flex flex-wrap justify-content-between">
                     <div class="entry-share mt-2 mb-2"><span class="text-muted">Share:</span>

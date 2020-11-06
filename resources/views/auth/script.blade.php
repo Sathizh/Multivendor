@@ -93,8 +93,10 @@ $(document).ready(function() {
             }
         });
 
+
+
 </script>
-<script type="text/javascript">
+{{-- <script type="text/javascript">
     Dropzone.options.dropzoneForm = {
     autoProcessQueue : false,
     acceptedFiles : ".png,.jpg,.gif,.bmp,.jpeg",
@@ -126,22 +128,22 @@ $(document).ready(function() {
   {
     $.ajax({
       url:"{{ route('dropzone.fetch') }}",
-      success:function(data)
-      {
-        $('#uploaded_image').html(data);
-      }
-    })
-  }
+success:function(data)
+{
+$('#uploaded_image').html(data);
+}
+})
+}
 
-  $(document).on('click', '.remove_image', function(){
-    var name = $(this).attr('id');
-    $.ajax({
-      url:"{{ route('dropzone.delete') }}",
-      data:{name : name},
-      success:function(data){
-        load_images();
-      }
-    })
-  });
+$(document).on('click', '.remove_image', function(){
+var name = $(this).attr('id');
+$.ajax({
+url:"{{ route('dropzone.delete') }}",
+data:{name : name},
+success:function(data){
+load_images();
+}
+})
+});
 
-</script>
+</script> --}}
