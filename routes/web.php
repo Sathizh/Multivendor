@@ -61,7 +61,9 @@ Route::post('stripe/checkout/{order}','StripeController@afterpayment')->name('ch
 Route::get('/Orders','HomeController@customer_dashboard')->name('customer.orders')->middleware('auth');
 Route::get('/Profile','HomeController@customer_profile')->name('customer.profile')->middleware('auth');
 Route::get('/Dashboarda','HomeController@customer_address')->name('customer.address')->middleware('auth');
+Route::post('/new_profile_change','HomeController@change_profile')->middleware('auth');
 Route::post('/customer_address_update','HomeController@customer_address_update')->name('customer.address_update')->middleware('auth');
+
 
 // Vendor
 Route::get('/dashboard', function () {
@@ -69,12 +71,17 @@ Route::get('/dashboard', function () {
 })->name('shop.dashboard');
 Route::get('/product_add','ProductController@create')->name('product.add')->middleware('auth');
 Route::post('/add_product','ProductController@store')->name('shop.product.add')->middleware('auth');
+Route::get('/product_edit/{id}', 'ProductController@edit')->name('product.edit')->middleware('auth');
+Route::get('/edit_product/{id}', 'ProductController@update')->middleware('auth');
+Route::get('/delete_product', 'ProductController@destroy')->middleware('auth');
 // Route::post('/product_image_upload','ProductController@img')->middleware('auth');
 Route::get('/Shop/Profile','ShopController@shop_profile')->name('shop.profile')->middleware('auth');
 Route::get('/Shop/Profile_update','ShopController@shop_profile_update')->name('shop.profile.update')->middleware('auth');
 Route::get('/Dashboarda','HomeController@customer_address')->name('customer.address')->middleware('auth');
 Route::post('/customer_address_update','HomeController@customer_address_update')->name('customer.address_update')->middleware('auth');
 Route::get('/Shop/my_products','ProductController@My_Product')->name('product.list')->middleware('auth');
+Route::get('/Shop/my_orders','OrderController@My_Orders')->name('MyOrders')->middleware('auth');
+Route::post('/update_order_status','OrderController@update_order')->middleware('auth');
 
 
 // shop

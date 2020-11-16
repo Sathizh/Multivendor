@@ -10,8 +10,16 @@
                                 <i class="icon-medal"></i>290 points</div> --}}
                 </div>
                 <div class="user-info">
-                    <div class="user-avatar"><a class="edit-avatar" href="#"></a><img
-                            src="assets/img/account/user-ava.jpg" alt="User"></div>
+                    <div class="user-avatar">
+                        <form action="/new_profile_change" id="profile_change" method="post"
+                            enctype="multipart/form-data">
+                            @csrf
+                            <a class="edit-avatar" id="profile_tog"></a>
+                            <input type="file" class="edit-avatar d-none" name="new_profile_photo"
+                                id="profile_update_trig" href="#">
+                        </form>
+                        <img src="../assets/img/profile_img/{{ auth()->user()->profile_photo }}" alt="User">
+                    </div>
                     <div class="user-data">
                         <h4>{{ auth()->user()->name }}</h4><span><b>Joined
                             </b>{{ date('F d Y', strtotime(auth()->user()->created_at)) }}</span>
@@ -19,8 +27,7 @@
                 </div>
             </aside>
             <nav class="list-group">
-                <a class="list-group-item with-badge" href="#"><i
-                        class="icon-bar-graph-2"></i>dashboard</a>
+                <a class="list-group-item with-badge" href="#"><i class="icon-bar-graph-2"></i>dashboard</a>
                 <a class="list-group-item" href="{{ route('customer.profile') }}"><i class="icon-head"></i>Profile</a>
                 <a class="list-group-item active" href="#"><i class="icon-map"></i>Addresses</a>
                 <a class="list-group-item with-badge" href="{{ route('wishlist') }}"><i

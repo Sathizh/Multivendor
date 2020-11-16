@@ -10,8 +10,16 @@
                                 <i class="icon-medal"></i>290 points</div> --}}
                 </div>
                 <div class="user-info">
-                    <div class="user-avatar"><a class="edit-avatar" href="#"></a><img
-                            src="{{ asset('assets/img/account/user-ava.jpg') }}" alt="User"></div>
+                    <div class="user-avatar">
+                        <form action="/new_profile_change" id="profile_change" method="post"
+                            enctype="multipart/form-data">
+                            @csrf
+                            <a class="edit-avatar" id="profile_tog"></a>
+                            <input type="file" class="edit-avatar d-none" name="new_profile_photo"
+                                id="profile_update_trig" href="#">
+                        </form>
+                        <img src="../assets/img/profile_img/{{ auth()->user()->profile_photo }}" alt="User">
+                    </div>
                     <div class="user-data">
                         <h4>{{ $details->shop_name }}</h4><span><b>Since
                             </b>{{ date('F d Y', strtotime($details->created_at)) }}</span>
@@ -26,6 +34,8 @@
                 <a class="list-group-item " href="{{ route('product.add') }}"><i class="icon-plus"></i>Add Product</a>
                 <a class="list-group-item with-badge" href="{{ route('product.list')}}"><i class="icon-box"></i>My
                     Products</a>
+                <a class="list-group-item with-badge" href="{{ route('MyOrders')}}"><i class="icon-archive"></i>My
+                    Orders</a>
                 <a class="list-group-item with-badge" href="{{ route('home') }}"><i class="icon-bag"></i>Back to
                     <span style="color: orangered">MulVenZ</span></a>
 

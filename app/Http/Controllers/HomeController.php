@@ -46,22 +46,27 @@ class HomeController extends Controller
         return \view('customer.customer_profile')->with('details',$details);
 
     }
-    // public function phonevalidation(Request $request)
-    // {
-    //     if($request->get('phone'))
-    //     {
-    //         $phone = $request->get('phone');
-    //         $data = User::where('phone', $phone)->count();
-    //         if($data > 0)
-    //         {
-    //             echo "not_unique";
-    //         }
-    //         else
-    //         {
-    //             echo "unique";
-    //         }
-    //     }
-    // }
+    public function change_profile(Request $request)
+    {
+        $id=auth()->user()->id;
+
+        $file=$request->new_profile_photo;
+        // Get Filename with exetendsion
+        $filenameWithExt = $file->getClientOriginalName();
+        // Get just FileName
+        $filename=pathinfo($filenameWithExt,PATHINFO_FILENAME);
+        // Get just ext
+        $extension =$file->getClientOriginalExtension();
+        // Filename to store
+        $filenameToStore= $id.'_'.$filename.'_'.time().'.'.$extension;
+        // Upload Image
+        $path=$file->move(public_path('\assets\img\profile_img/'), $filenameToStore);
+
+        $user = User::findOrfail($id);
+        $user->profile_photo=$filenameToStore;
+        $user->save();
+        return back();
+    }
     public function GSTvalidation(Request $request)
     {
         if($request->get('gst'))

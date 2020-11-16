@@ -93,8 +93,20 @@ $(document).ready(function() {
             }
         });
 
+// profile change
+        $(document).ready(function () {
+            jQuery("#profile_tog").click(function () {
+            jQuery("#profile_update_trig").trigger('click');
 
+            });
+        $("#profile_update_trig").change(function (e) {
+            $("#profile_change").submit();
+            // var fileName = "";
+            //     fileName=e.target.files[0].name;
+            //     console.log(fileName)
 
+        });
+        });
 </script>
 {{-- <script type="text/javascript">
     Dropzone.options.dropzoneForm = {

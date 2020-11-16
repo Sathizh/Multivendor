@@ -60,6 +60,7 @@ class ProductController extends Controller
         $Product->product_brand=$request->product_brand;
         $Product->product_status=$request->product_status;
         $Product->description=$request->product_discription;
+        $product->is_alive=true;
         $Product->save();
 
         $latest = Product::where('user_id',$id)->orderBy('created_at','desc')->get();
@@ -113,9 +114,11 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit(Request $request)
     {
-        //
+        $id=$request->id;
+        $product=Product::findOrfail($id);
+        return \view('vendor.vendor_edit_product')->with('product',$product);
     }
 
     /**
@@ -125,9 +128,24 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request)
     {
-        //
+        $id=$request->id;
+        $Product=Product::findOrfail($id);
+
+        $Product->user_id=$id;
+        $Product->name=$request->product_name;
+        $Product->price=$request->price;
+        $Product->quantity=$request->qty;
+        $Product->product_weight=$request->product_weight;
+        $Product->product_measur=$request->product_measur;
+        $Product->product_category=$request->product_category;
+        $Product->product_brand=$request->product_brand;
+        $Product->product_status=$request->product_status;
+        $Product->save();
+
+        return \redirect()->route('product.list')->with('product_update_message','Product Updated Successfully');
+
     }
 
     /**
@@ -136,9 +154,13 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy(Request $request)
     {
-        //
+        $id=$request->id;
+        $update=Product::findOrfail($id);
+        $update->is_alive=false;
+        $update->save();
+        return \back()->with('product_delete_message','Product Deleted Successfully');
     }
     public function My_Product()
     {
@@ -146,10 +168,6 @@ class ProductController extends Controller
         // dd($details);
         return view('vendor.vendor_my_products')->with('products',$products);
 
-    }
-    public function img(Request $request)
-    {
-        # code...
     }
 }
 
@@ -201,11 +219,8 @@ class ProductController extends Controller
 //      echo $output;
 //     }
 
-//     function delete(Request $request)
-//     {
-//      if($request->get('name'))
-//      {
-//       \File::delete(public_path('\assets\img\product_img/' . $request->get('name')));
-//      }
-//     }
+    // function delete(Request $request)
+    // {
+    //     dd($request);
+    // }
 // }

@@ -50,9 +50,34 @@ jQuery(document).ready(function () {
         }
 
     });
+    jQuery("#edit_product_btn").click(function (e) {
+        if (jQuery('#product_name').val() == ""
+        || jQuery('#product_price').val() == ""
+        || jQuery('#product_qty').val() == ""
+        || jQuery('#product_weight').val() == ""
+        // || jQuery('#product_img').val() == null
+        ) {
+            console.log((jQuery('#product_name').val()));
+            // jQuery('#product_name').scrollTop("10px");
+            // console.log("sample")
+            jQuery('#scroll_top').trigger("click");
+            jQuery('#b_d').trigger("click");
+            jQuery('#field_empty_warning').trigger("click");
+        }
+        else {
+            console.log("else data");
+            let disc = (CKEDITOR.instances['product_preview_discription']).getData();
+            jQuery('#product_discription').attr("value", disc)
+
+            jQuery('#edit_product').submit();
+        }
+
+    });
     jQuery(document).ready(function () {
 
-        jQuery('input[type="file"]').change(function (e) {
+        // jQuery('input[type="file"]').change(function (e) {
+        jQuery('#ad_product_img').change(function (e) {
+
 
             // alert(e.target.files[0].name)
             var fileName = "";

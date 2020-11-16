@@ -633,7 +633,7 @@
     <div class="topbar">
         <div class="topbar-column"><a class="hidden-md-down" href="mailto:support@mulvenz.com"><i
                     class="icon-mail"></i>&nbsp; support@mulvenz.com</a><a class="hidden-md-down"
-                href="tel:00331697720"><i class="icon-bell"></i>&nbsp; +91 9427 20958</a><a
+                href="tel:9842720958"><i class="icon-bell"></i>&nbsp; +91 9427 20958</a><a
                 class="social-button sb-facebook shape-none sb-dark" href="#" target="_blank"><i
                     class="socicon-facebook"></i></a><a class="social-button sb-twitter shape-none sb-dark" href="#"
                 target="_blank"><i class="socicon-twitter"></i></a><a
@@ -870,8 +870,9 @@
                     <div class="account"><a href="#"></a><i class="icon-head"></i>
                         <ul class="toolbar-dropdown">
                             <li class="sub-menu-user">
-                                <div class="user-ava"><img src="{{ asset('assets/img/account/user-ava-sm.jpg') }}"
-                                        alt="Daniel Adams">
+                                <div class="user-ava"><img
+                                        src="../assets/img/profile_img/{{ auth()->user()->profile_photo }}"
+                                        alt="{{ auth()->user()->name }}">
                                 </div>
                                 <div class="user-info">
                                     <h6 class="user-name">{{ auth()->user()->name }}</h6><span
@@ -920,11 +921,15 @@
                             $cartItems = \Cart::session(auth()->id())->getContent();
                             @endphp
                             @foreach ($cartItems as $item)
+                            @php
+                            $img= App\Image::where('product_id',$item->id)->get();
+                            @endphp
                             <div class="dropdown-product-item"><span class="dropdown-product-remove"><a
                                         href="{{route ('cart.destroy',$item->id)}}"><i
                                             class="icon-cross text-danger"></i></a></span><a
                                     class="dropdown-product-thumb" href="{{ route('details',$item->id) }}"><img
-                                        src="{{ asset('default.jpg') }}" alt="Product"></a>
+                                        src="/assets/img/product_img/{{ $img[0]->file_name }}" alt="Product"></a>
+
                                 <div class="dropdown-product-info"><a class="dropdown-product-title"
                                         href="{{ route('details',$item->id) }}">{{ $item->name }}</a><span
                                         class="dropdown-product-details">{{$item->quantity}} x ₹
@@ -990,6 +995,18 @@
         <div class="alert alert-success alert-dismissible fade show text-center margin-bottom-1x">
             <span class="alert-close" data-dismiss="alert"></span><i class="icon-help"></i>&nbsp;&nbsp;<strong>Success
                 alert:</strong>{{ session('product_create_message') }}</div>
+        @endif
+        {{-- product_update_message --}}
+        @if (session('product_update_message'))
+        <div class="alert alert-success alert-dismissible fade show text-center margin-bottom-1x">
+            <span class="alert-close" data-dismiss="alert"></span><i class="icon-help"></i>&nbsp;&nbsp;<strong>Success
+                alert:</strong>{{ session('product_update_message') }}</div>
+        @endif
+        {{-- product_delete_message --}}
+        @if (session('product_delete_message'))
+        <div class="alert alert-warning alert-dismissible fade show text-center margin-bottom-1x">
+            <span class="alert-close" data-dismiss="alert"></span><i class="icon-help"></i>&nbsp;&nbsp;<strong>Success
+                alert:</strong>{{ session('product_delete_message') }}</div>
         @endif
         <!-- Page Content-->
         @yield('content')

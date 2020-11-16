@@ -55,14 +55,16 @@
                         @foreach ($details as $item)
                         @php
                         $product=App\Product::find($item->product_id);
+                        $img=\App\Image::where('product_id',$product->id)->get();
                         @endphp
 
                         <tr>
                             <td>
                                 <div class="product-item"><a class="product-thumb" href="shop-single.html"><img
-                                            src="{{ asset('default.jpg') }}" alt="Product"></a>
+                                            src="/assets/img/product_img/{{ $img[0]->file_name }}" alt="Product"></a>
                                     <div class="product-info">
-                                        <h4 class="product-title"><a href="shop-single.html">{{ $product->name }}</a>
+                                        <h4 class="product-title"><a
+                                                href="{{ route('details',$product->id) }}">{{ $product->name }}</a>
                                         </h4>
                                         <div class="text-lg text-medium text-muted">₹{{ $product->price }}</div>
                                         <div>Availability:

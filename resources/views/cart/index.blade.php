@@ -18,8 +18,11 @@
                 @foreach ($cartItems as $item)
                 <tr>
                     <td>
+                        @php
+                        $img= App\Image::where('product_id',$item->id)->get();
+                        @endphp
                         <div class="product-item"><a class="product-thumb" href="{{ route('details',$item->id) }}"><img
-                                    src="{{ asset('default.jpg') }}" alt="Product"></a>
+                                    src="/assets/img/product_img/{{ $img[0]->file_name }}" alt="Product"></a>
                             <div class="product-info align-middle">
                                 <h4 class="product-title"><a
                                         href="{{ route('details',$item->id) }}">{{ $item->name }}</a></h4>

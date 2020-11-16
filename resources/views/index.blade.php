@@ -28,6 +28,7 @@
 
             <!-- Product-->
             @foreach ($Products as $product)
+            @if ($product->is_alive==true)
             <div class="grid-item">
                 <div class="product-card">
                     <div class="rating-stars"><i class="icon-star filled"></i><i class="icon-star filled"></i><i
@@ -36,7 +37,7 @@
                         @php
                         $img=\App\Image::where('product_id',$product->id)->get();
                         @endphp
-                        <img class="card-img-top" src="/assets/img/product_img/{{ $img[3]->file_name }}"
+                        <img class="card-img-top" src="/assets/img/product_img/{{ $img[0]->file_name }}"
                             alt="MulVenZ"></a>
                     <h3 class="product-title"><a href="{{ route('details',$product->id) }}">{{ $product->name }}</a>
                     </h3>
@@ -57,6 +58,7 @@
                     </div>
                 </div>
             </div>
+            @endif
             @endforeach
         </div>
         {{ $Products->links() }}

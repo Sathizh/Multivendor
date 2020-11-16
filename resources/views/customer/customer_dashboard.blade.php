@@ -130,10 +130,10 @@
                             <td><a class="text-medium navi-link" href="#" data-toggle="modal"
                                     data-target="#orderDetails">{{ $order->id }}</a></td>
                             <td>{{ date('F d,Y',strtotime($order->created_at)) }}</td>
-                            @if ($order->status=='paid')
-                            <td><span class="text-success">{{ $order->status }}</span></td>
+                            @if ($order->payment_status=='paid')
+                            <td><span class="text-success">{{ $order->payment_status }}</span></td>
                             @else
-                            <td><span class="text-danger">{{ $order->status }}</span></td>
+                            <td><span class="text-danger">{{ $order->payment_status }}</span></td>
                             @endif
                             <td><span class="text-medium">Rs.{{ $order->grand_total }}</span></td>
                         </tr>

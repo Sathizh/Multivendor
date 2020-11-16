@@ -40,7 +40,7 @@
                         class="icon-bar-graph-2"></i>dashboard</a>
                 <a class="list-group-item " href="{{ route('shop.profile') }}"><i class="icon-head"></i>Shop
                     Profile</a>
-                <a class="list-group-item active" href="#"><i class="icon-plus"></i>Add Product</a>
+                <a class="list-group-item active" href="#"><i class="icon-cloud-upload"></i>Edit Product</a>
                 <a class="list-group-item with-badge" href="{{ route('product.list')}}"><i class="icon-box"></i>My
                     Products</a>
                 <a class="list-group-item with-badge" href="{{ route('MyOrders')}}"><i class="icon-archive"></i>My
@@ -64,28 +64,28 @@
             <div class="tab-content">
                 <div class="tab-pane fade show active" id="basic_details" role="tabpanel">
                     <div class="padding-top-2x mt-2 hidden-lg-up"></div>
-                    <form class="row" action="/add_product" id="addd_product" method="post"
+                    <form class="row" action="/edit_product/{{ $product->id }}" id="edit_product" method="get"
                         enctype="multipart/form-data">
                         @csrf
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="product_name">Product Name</label>
-                                <input class="form-control" name="product_name" type="text" value="" id="product_name"
-                                    aria-describedby="helpId1" required>
+                                <input class="form-control" name="product_name" type="text" value="{{ $product->name }}"
+                                    id="product_name" aria-describedby="helpId1" required>
                                 <small id="helpId1" class="form-text text-muted">if a product containt any Model Number
                                     then
                                     include that Name itself</small>
                             </div>
                             <div class="form-group">
                                 <label for="product_price">Price</label>
-                                <input class="form-control" name="price" type="number" id="product_price"
-                                    aria-describedby="helpId" autocomplete="off" min="0" required>
+                                <input class="form-control" name="price" value="{{ $product->price }}" type="number"
+                                    id="product_price" aria-describedby="helpId" autocomplete="off" min="0" required>
                                 <small id="helpId" class="form-text text-muted">Price should be in INR (₹)</small>
                             </div>
                             <div class="form-group">
                                 <label for="product_qty">Quantity</label>
-                                <input class="form-control" name="qty" type="number" id="product_qty" autocomplete="off"
-                                    min="0" required>
+                                <input class="form-control" name="qty" value="{{ $product->quantity }}" type="number"
+                                    id="product_qty" autocomplete="off" min="0" required>
 
                             </div>
                         </div>
@@ -94,15 +94,17 @@
                                 <label for="product_weight">Weight</label>
                                 <div class="d-flex ">
                                     <input class="form-control rounded-0 rounded-left border-right-0 without_arrow"
-                                        name="product_weight" type="number" aria-describedby="Weighthelp"
-                                        id="product_weight" step="0.01" autocomplete="off" min="0" required>
+                                        name="product_weight" type="number" value="{{ $product->product_weight }}"
+                                        aria-describedby="Weighthelp" id="product_weight" step="0.01" autocomplete="off"
+                                        min="0" required>
                                     <select name="product_measur" id="product_measur"
                                         class="form-control w-25 rounded-0 border-left-0">
+                                        <option value="{{ $product->product_measur }}" selected>
+                                            {{ $product->product_measur }}</option>
                                         <option value="Kg">Kg -kilo Gram</option>
                                         <option value="g">g -Gram</option>
                                         <option value="ml">ml -milli litter</option>
                                         <option value="l">l -litter</option>
-                                        {{-- <option value="ml">ml</option> --}}
                                     </select>
                                 </div>
 
@@ -110,7 +112,9 @@
                             <div class="form-group">
                                 <label for="product_category">Category</label>
                                 <select name="product_category" id="product_category" class="form-control" required>
-                                    <option value="">select</option>
+                                    <option value="{{ $product->product_category }}" selected>
+                                        {{ $product->product_category }}
+                                    </option>
                                     <option value="Andhra Pradesh">Andhra Pradesh</option>
                                     <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
                                     <option value="Arunachal Pradesh">Arunachal Pradesh</option>
@@ -154,14 +158,17 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="product_brand">Brand</label>
-                                <input class="form-control" name="product_brand" type="text" id="product_brand"
-                                    required>
+                                <input class="form-control" name="product_brand" value="{{ $product->product_brand }}"
+                                    type="text" id="product_brand" required>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="product_status">Stock Status</label>
                                 <select class="form-control" name="product_status" id="product_status">
+                                    <option value="{{ $product->product_status }}" selected>
+                                        {{ $product->product_status }}
+                                    </option>
                                     <option value="In Stock">In Stock</option>
                                     <option value="Out of Stock">Out Of Stock</option>
                                     <option value="Comming Soon">Comming Soon</option>
@@ -178,7 +185,8 @@
                                 {{-- <button class="btn btn-primary margin-right-none" id="create_shop" type="submit"></button> --}}
                             </div>
                         </div>
-                        <input type="hidden" name="product_discription" id="product_discription" value="No Discription">
+                        <input type="hidden" name="product_discription" id="product_discription"
+                            value="{{ $product->description }}">
 
                 </div>
                 {{-- image --}}
@@ -199,42 +207,53 @@
                             <div class="product-gallery"><span class="product-badge" style="color: green"
                                     id="product_preview_status">In
                                     Stock</span>
-
+                                @php
+                                $imgs=\App\Image::where('product_id',$product->id)->get();
+                                $counter1=0;
+                                $counter2=0;
+                                @endphp
+                                @if (count($imgs))
                                 <div class="product-carousel owl-carousel gallery-wrapper">
-                                    <div class="gallery-item " data-hash="one"><a class="product_preview_image_slider"
-                                            href="{{ asset('default.jpg') }}" data-size="900x667"><img
-                                                class="product_preview_image" src="{{ asset('default.jpg') }}"
-                                                alt="Product"></a></div>
-                                    <div class="gallery-item" data-hash="two"><a class="product_preview_image_slider"
-                                            href="{{ asset('default.jpg') }}" data-size="900x667"><img
-                                                class="product_preview_image" src="{{ asset('default.jpg') }}"
-                                                alt="Product"></a></div>
-                                    <div class="gallery-item" data-hash="three"><a class="product_preview_image_slider"
-                                            href="{{ asset('default.jpg') }}" data-size="900x667"><img
-                                                class="product_preview_image" src="{{ asset('default.jpg') }}"
-                                                alt="Product"></a></div>
-                                    <div class="gallery-item" data-hash="four"><a class="product_preview_image_slider"
-                                            href="{{ asset('default.jpg') }}" data-size="900x667"><img
-                                                class="product_preview_image" src="{{ asset('default.jpg') }}"
-                                                alt="Product"></a></div>
-                                    <div class="gallery-item" data-hash="five"><a class="product_preview_image_slider"
-                                            href="{{ asset('default.jpg') }}" data-size="900x667"><img
-                                                class="product_preview_image" src="{{ asset('default.jpg') }}"
-                                                alt="Product"></a></div>
+                                    @foreach ($imgs as $img)
+                                    @php
+                                    $counter1+=1;
+                                    @endphp
+                                    <div class="gallery-item" data-hash="{{ $counter1 }}"><a
+                                            href="/assets/img/product_img/{{ $img->file_name }}"
+                                            data-size="1000x667"><img
+                                                src="/assets/img/product_img/{{ $img->file_name }}" alt="Product"></a>
+                                    </div>
+                                    @endforeach
                                 </div>
-
                                 <ul class="product-thumbnails">
-                                    <li class="active"><a href="#one"><img class="product_preview_image_thumb"
-                                                src="{{ asset('default.jpg') }}" alt="Product"></a></li>
-                                    <li><a href="#two"><img class="product_preview_image_thumb"
-                                                src="{{ asset('default.jpg') }}" alt="Product"></a></li>
-                                    <li><a href="#three"><img class="product_preview_image_thumb"
-                                                src="{{ asset('default.jpg') }}" alt="Product"></a></li>
-                                    <li><a href="#four"><img class="product_preview_image_thumb"
-                                                src="{{ asset('default.jpg') }}" alt="Product"></a></li>
-                                    <li><a href="#five"><img class="product_preview_image_thumb"
-                                                src="{{ asset('default.jpg') }}" alt="Product"></a></li>
+                                    @foreach ($imgs as $img)
+                                    @php
+                                    $counter2+=1;
+                                    @endphp
+                                    <li class="active"><a href="#{{ $counter2 }}"><img
+                                                src="/assets/img/product_img/{{ $img->file_name }}" alt="Product"></a>
+                                    </li>
+                                    @endforeach
                                 </ul>
+                                @else
+                                <div class="product-carousel owl-carousel gallery-wrapper">
+                                    @php
+                                    $counter1+=1;
+                                    // dd("sample else");
+                                    @endphp
+                                    <div class="gallery-item" data-hash="{{ $counter1 }}"><a
+                                            href="{{ asset('default.jpg') }}" data-size="1000x667"><img
+                                                src="{{ asset('default.jpg') }}" alt="Product"></a>
+                                    </div>
+                                </div>
+                                <ul class="product-thumbnails">
+                                    @php
+                                    $counter2+=1;
+                                    @endphp
+                                    <li class="active"><a href="#{{ $counter2 }}"><img src="{{ asset('default.jpg') }}"
+                                                alt="Product"></a></li>
+                                </ul>
+                                @endif
                             </div>
 
                         </div>
@@ -299,9 +318,9 @@
                         <div class="col-md-12 pt-3">
                             <hr>
                             <div class="float-right">
-                                <button class="btn btn-primary margin-right-none" id="add_product" type="submit"><i
-                                        class="icon-plus"></i>
-                                    Add Product</button>
+                                <button class="btn btn-primary margin-right-none" id="edit_product_btn" type="submit"><i
+                                        class="icon-cloud-upload"></i>
+                                    Edit Product</button>
                             </div>
                         </div>
                     </div>

@@ -71,6 +71,7 @@
                 $shop=\App\Shop::where('user_id',$details->user_id)->get();
                 @endphp
                 <span><b>Vendor :</b> {{ $shop[0]->shop_name }}</span>
+
                 <script>
                     jQuery(document).ready(function () {
                         jQuery('#description').html(`{!! $details->description !!}`);

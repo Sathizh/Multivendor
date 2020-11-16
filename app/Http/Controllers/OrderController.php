@@ -49,7 +49,8 @@ class OrderController extends Controller
 
         $order->order_number = uniqid('OrderNumber-');
 
-        $order->status="pending";
+        $order->payment_status="pending";
+        $order->order_status="Confirmed Order";
         $order->payment_method=$request->input('payment_method');
         $order->is_paid=false;
         $order->shipping_fullname = $request->input('shipping_fullname');
@@ -163,5 +164,19 @@ class OrderController extends Controller
     public function destroy(Order $order)
     {
         //
+    }
+
+    public function My_Orders()
+    {
+        $orders=Order::paginate(5);
+        return view('vendor.vendor_my_orders')->with('orders',$orders);
+
+    }
+    public function update_order(Request $request)
+    {
+        $orders=Order::findOrfail($request->order_id);
+        $orders->order_status=$request->order_status;
+        $orders->save();
+        return \back();
     }
 }

@@ -40,7 +40,7 @@ class StripeController extends Controller
     {
         $order = Order::findOrFail($id);
                 $order->is_paid = true;
-                $order->status = "paid";
+                $order->payment_status = "paid";
                 $order->save();
 
         \Cart::session(auth()->id())->clear();
@@ -48,7 +48,7 @@ class StripeController extends Controller
         Mail::to($order->user->email)->send(new OrderPaid($order));
         // mail to vendor
         // for loop needed for itrate diffrent item vendors
-        Mail::to($order->user->email)->send(new ToVendor($order));
+        // Mail::to($order->user->email)->send(new ToVendor($order));
 
         return redirect()->route('home')->withMessage('Payment successfull!');
     }

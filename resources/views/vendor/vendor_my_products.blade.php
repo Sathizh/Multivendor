@@ -13,8 +13,16 @@
                 <div class="user-cover" style="background-image: url(assets/img/account/user-cover-img.jpg);">
                 </div>
                 <div class="user-info">
-                    <div class="user-avatar"><a class="edit-avatar" href="#"></a><img
-                            src="{{ asset('assets/img/account/user-ava.jpg') }}" alt="User"></div>
+                    <div class="user-avatar">
+                        <form action="/new_profile_change" id="profile_change" method="post"
+                            enctype="multipart/form-data">
+                            @csrf
+                            <a class="edit-avatar" id="profile_tog"></a>
+                            <input type="file" class="edit-avatar d-none" name="new_profile_photo"
+                                id="profile_update_trig" href="#">
+                        </form>
+                        <img src="../assets/img/profile_img/{{ auth()->user()->profile_photo }}" alt="User">
+                    </div>
                     <div class="user-data">
                         <h4>{{ $details->shop_name }}</h4><span><b>Since
                             </b>{{ date('F d Y', strtotime($details->created_at)) }}</span>
@@ -27,7 +35,10 @@
                 <a class="list-group-item " href="{{ route('shop.profile') }}"><i class="icon-head"></i>Shop
                     Profile</a>
                 <a class="list-group-item " href="{{ route('product.add') }}"><i class="icon-plus"></i>Add Product</a>
-                <a class="list-group-item with-badge active" href="{{ route('product.list')}}"><i class="icon-box"></i>My Products</a>
+                <a class="list-group-item with-badge active" href="{{ route('product.list')}}"><i
+                        class="icon-box"></i>My Products</a>
+                <a class="list-group-item with-badge" href="{{ route('MyOrders')}}"><i class="icon-archive"></i>My
+                    Orders</a>
                 <a class="list-group-item with-badge" href="{{ route('home') }}"><i class="icon-bag"></i>Back to
                     <span style="color: orangered">MulVenZ</span></a>
 
@@ -44,16 +55,23 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @if ($products)
                         @foreach ($products as $product)
                         @php
-                            // dd($product->name);
+                        // dd($product->name);
                         @endphp
+                        @if ($product->is_alive==true)
                         <tr>
                             <td>
-                                <div class="product-item"><a class="product-thumb" href="shop-single.html"><img
-                                            src="{{ asset('default.jpg') }}" alt="Product"></a>
+                                @php
+                                $img= App\Image::where('product_id',$product->id)->get();
+                                @endphp
+                                <div class="product-item"><a class="product-thumb"
+                                        href="{{ route('details',$product->id) }}"><img
+                                            src="/assets/img/product_img/{{ $img[0]->file_name }}" alt="Product"></a>
                                     <div class="product-info">
-                                        <h4 class="product-title"><a href="shop-single.html">{{ $product->name }}</a>
+                                        <h4 class="product-title"><a
+                                                href="{{ route('details',$product->id) }}">{{ $product->name }}</a>
                                         </h4>
                                         <div class="text-lg text-medium text-muted">₹{{ $product->price }}</div>
                                         <div>Stock status:
@@ -62,16 +80,23 @@
                                     </div>
                                 </div>
                             </td>
-                            <td class="text-center">
+                            <td class="text-center d-flex">
                                 <a class="btn btn-outline-warning btn-sm"
-                                    href="#" data-toggle="tooltip"
+                                    href="{{ route('product.edit',$product->id) }}" data-toggle="tooltip"
                                     title="Edit item">Edit</a>
-                                <a class="btn btn-outline-danger btn-sm"
-                                    href="#" data-toggle="tooltip"
-                                    title="Remove item">Delete</a>
+                                <a class="btn btn-outline-danger btn-sm ml-3" href="#" data-toggle="modal"
+                                    data-target="#modalCentered_{{ $product->id }}">Delete</a>
                             </td>
                         </tr>
+                        @endif
                         @endforeach
+                        @else
+                        <tr class="text-center h6">
+                            <td>
+                                <-- You don't have any Products -->
+                            </td>
+                        </tr>
+                        @endif
                     </tbody>
                 </table>
             </div>
@@ -80,3 +105,35 @@
     </div>
 </div>
 @endsection
+{{-- conirm model --}}
+<!-- Vertically Centered Modal-->
+@foreach ($products as $product)
+<div class="modal fade" id="modalCentered_{{ $product->id }}" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Confirm Alert</h4>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <p class="text-center h5"
+                    style="box-sizing: border-box; color: rgb(255, 0, 0); font-weight: bold; text-shadow: rgb(255, 0, 0) 5px 2px 12px;">
+                    Are you sure, You want to delete the item
+                    ?</p>
+                <br>
+                <h6 class="text-center"
+                    style="box-sizing: border-box; color: rgb(0,255,0); font-weight: bold; text-shadow: rgb(0, 255, 0) 5px 2px 12px;">
+                    " {{ $product->name }} "</h6>
+            </div>
+            <div class="modal-footer">
+                <form action="/delete_product" method="get">
+                    <button class="btn btn-outline-secondary btn-sm" type="button" data-dismiss="modal">Close</button>
+                    <input type="hidden" name="id" value="{{ $product->id }}">
+                    <input type="submit" value="Yes I'm" class="btn btn-primary btn-sm">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@endforeach
