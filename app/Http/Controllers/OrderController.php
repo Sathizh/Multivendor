@@ -179,4 +179,8 @@ class OrderController extends Controller
         $orders->save();
         return \back();
     }
+    public function buyers_list()
+    {
+        return \view('vendor.buyers_list');
+    }
 }

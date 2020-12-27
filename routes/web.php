@@ -82,6 +82,20 @@ Route::post('/customer_address_update','HomeController@customer_address_update')
 Route::get('/Shop/my_products','ProductController@My_Product')->name('product.list')->middleware('auth');
 Route::get('/Shop/my_orders','OrderController@My_Orders')->name('MyOrders')->middleware('auth');
 Route::post('/update_order_status','OrderController@update_order')->middleware('auth');
+Route::get('/BuyersList','OrderController@buyers_list')->name('buyers.list')->middleware('auth');
+
+
+// admin
+
+Route::get('/Admin/Profile','AdminController@admin_profile')->name('admin.profile')->middleware('auth');
+Route::get('/Admin/Dashboard','AdminController@Dashboard')->name('admin.dashboard')->middleware('auth');
+Route::get('/Admin/Maintenance', function () {
+    return view('admin.maintenance_and_approval');
+})->name('admin.maintenance_and_approval')->middleware('auth');
+Route::get('/Admin/Add/Category', function () {
+    return view('admin.add_category');
+})->name('admin.add_category')->middleware('auth');
+Route::get('/Customer_Active_status_change/{id}','AdminController@customer_active_status_change')->name('status.change')->middleware('auth');
 
 
 // shop

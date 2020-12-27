@@ -111,42 +111,20 @@
                                 <label for="product_category">Category</label>
                                 <select name="product_category" id="product_category" class="form-control" required>
                                     <option value="">select</option>
-                                    <option value="Andhra Pradesh">Andhra Pradesh</option>
-                                    <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
-                                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                                    <option value="Assam">Assam</option>
-                                    <option value="Bihar">Bihar</option>
-                                    <option value="Chandigarh">Chandigarh</option>
-                                    <option value="Chhattisgarh">Chhattisgarh</option>
-                                    <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
-                                    <option value="Daman and Diu">Daman and Diu</option>
-                                    <option value="Delhi">Delhi</option>
-                                    <option value="Lakshadweep">Lakshadweep</option>
-                                    <option value="Puducherry">Puducherry</option>
-                                    <option value="Goa">Goa</option>
-                                    <option value="Gujarat">Gujarat</option>
-                                    <option value="Haryana">Haryana</option>
-                                    <option value="Himachal Pradesh">Himachal Pradesh</option>
-                                    <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-                                    <option value="Jharkhand">Jharkhand</option>
-                                    <option value="Karnataka">Karnataka</option>
-                                    <option value="Kerala">Kerala</option>
-                                    <option value="Madhya Pradesh">Madhya Pradesh</option>
-                                    <option value="Maharashtra">Maharashtra</option>
-                                    <option value="Manipur">Manipur</option>
-                                    <option value="Meghalaya">Meghalaya</option>
-                                    <option value="Mizoram">Mizoram</option>
-                                    <option value="Nagaland">Nagaland</option>
-                                    <option value="Odisha">Odisha</option>
-                                    <option value="Punjab">Punjab</option>
-                                    <option value="Rajasthan">Rajasthan</option>
-                                    <option value="Sikkim">Sikkim</option>
-                                    <option value="Tamil Nadu">Tamil Nadu</option>
-                                    <option value="Telangana">Telangana</option>
-                                    <option value="Tripura">Tripura</option>
-                                    <option value="Uttar Pradesh">Uttar Pradesh</option>
-                                    <option value="Uttarakhand">Uttarakhand</option>
-                                    <option value="West Bengal">West Bengal</option>
+                                    <option value="Mobiles and Tablets">Mobiles and Tablets</option>
+                                    <option value="Fashion">Fashion</option>
+                                    <option value="Consumer Electronics">Consumer Electronics</option>
+                                    <option value="Books">Books</option>
+                                    <option value="Baby Products">Baby Products</option>
+                                    <option value="Groceries">Groceries</option>
+                                    <option value="Food Takeaway/Delivery">Food Takeaway/Delivery</option>
+                                    <option value="Home Furnishings">Home Furnishings</option>
+                                    <option value="Jewelry">Jewelry</option>
+                                    <option value="Toys">Toys</option>
+                                    <option value="Sun Glasses">Sun Glasses</option>
+                                    <option value="Face Masks">Face Masks</option>
+                                    <option value="Gym Equipment">Gym Equipment</option>
+                                    <option value="Home and Garden">Home and Garden</option>
                                 </select>
                             </div>
                         </div>
@@ -283,7 +261,7 @@
                         <div id="data_show"></div>
                         <div class="col-md-12 mt-4">
                             <div class="form-group">
-                                <h3 for="product_preview_discription">Discription</h3>
+                                <h3 for="product_preview_discription">Description</h3>
 
                                 <textarea class="form-control" name="discription" id="product_preview_discription"
                                     cols="10" rows="5" placeholder="Say something about your Product..."

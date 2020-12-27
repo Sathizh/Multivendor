@@ -28,6 +28,11 @@
     <!-- Customizer Styles-->
     <link rel="stylesheet" media="screen" href="{{ asset('assets/customizer/customizer.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/dropzone/min/dropzone.min.css') }}">
+
+    {{-- tagify --}}
+    <link rel="stylesheet" href="{{ asset('assets/css/tagify.css') }}">
+
+
     <!-- Google Tag Manager-->
     {{-- <script>
       (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -1037,7 +1042,7 @@
                                     class="socicon-googleplus"></i></a>
                         </section>
                     </div>
-                    <div class="col-lg-3 col-md-6">
+                    {{-- <div class="col-lg-3 col-md-6">
                         <!-- Mobile App Buttons-->
                         <section class="widget widget-light-skin">
                             <h3 class="widget-title">Mobile App will Comming Soon</h3><a
@@ -1052,7 +1057,7 @@
                                     the</span><span class="mb-title">Windows
                                     Store</span></a>
                         </section>
-                    </div>
+                    </div> --}}
                     <div class="col-lg-3 col-md-6">
                         <!-- About Us-->
                         <section class="widget widget-links widget-light-skin">
@@ -1074,10 +1079,22 @@
                                 <li><a href="{{ route('customer.profile') }}">Your Account</a></li>
                                 <li><a href="#">Shipping Rates & Policies</a></li>
                                 <li><a href="#">Refunds & Replacements</a></li>
-                                <li><a href="#">Taxes</a></li>
                                 <li><a href="#">Delivery Info</a></li>
-                                <li><a href="#">Affiliate Program</a></li>
                             </ul>
+                        </section>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <!-- Account / Shipping Info-->
+                        <section class="widget widget-links widget-light-skin">
+                            <h3 class="widget-title">Any Bugus you are facing ?</h3>
+                            <p>If yes, please leave your problem we will rectify soon</p>
+                            <form action="">
+                                <textarea name="" id="" cols="32" rows="7" class="form-control"
+                                    style="background-color: transparent;color:aqua"></textarea>
+                                <div class="d-flex justify-content-center">
+                                    <button class="btn btn-primary " type="submit">Submit</button>
+                                </div>
+                            </form>
                         </section>
                     </div>
                 </div>
@@ -1114,9 +1131,9 @@
                     </div>
                 </div>
                 <!-- Copyright-->
-                <p class="footer-copyright">© All rights reserved. Made with &nbsp;<i
+                <p class="footer-copyright text-center">© All rights reserved. Made with &nbsp;<i
                         class="icon-heart text-danger"></i><a href="http://sathizh.hostsz.tk/" target="_blank"> &nbsp;by
-                        Sathish</a></p>
+                        Freshnote</a></p>
             </div>
         </footer>
     </div>
@@ -1131,8 +1148,18 @@
     <!-- Customizer scripts-->
     <script src="{{ asset('assets/customizer/customizer.min.js') }}"></script>
 
+    {{-- Datatables --}}
+    <script src="//code.jquery.com/jquery-1.12.3.js"></script>
+    <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
 
+    {{-- chart --}}
 
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    {{-- tagify --}}
+    <script type="text/javascript" src="{{ asset('assets/js/tagify.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/jQuery.tagify.min.js') }}"></script>
 
     @include('auth.script')
 </body>

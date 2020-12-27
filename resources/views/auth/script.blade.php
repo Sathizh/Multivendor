@@ -108,6 +108,36 @@ $(document).ready(function() {
         });
         });
 </script>
+{{-- datatables --}}
+<script>
+    $(document).ready(function() {
+    // $('#customer_table').DataTable();
+    // $('#vendor_table').DataTable();
+    // $('#shop_table').DataTable();
+} );
+    $("#ex-radio-1").click(function (e) {
+        $("#customer_table").removeClass("d-none");
+        $("#vendor_table").addClass("d-none");
+        $("#shop_table").addClass("d-none");
+    });
+    $("#ex-radio-2").click(function (e) {
+        $("#vendor_table").removeClass("d-none");
+        $("#customer_table").addClass("d-none");
+        $("#shop_table").addClass("d-none");
+    });
+    $("#ex-radio-3").click(function (e) {
+        $("#shop_table").removeClass("d-none");
+        $("#vendor_table").addClass("d-none");
+        $("#customer_table").addClass("d-none");
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $("#tag").tagify();
+    });
+</script>
+
 {{-- <script type="text/javascript">
     Dropzone.options.dropzoneForm = {
     autoProcessQueue : false,

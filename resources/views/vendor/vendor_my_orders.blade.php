@@ -158,7 +158,6 @@
 
                         @php
                         $products=$order->order_items;
-                        // dd($order);
                         @endphp
                         @foreach ($products as $product)
                         @if ($product['associatedModel']['user_id']==$id && $order->order_status != "Product Delivered")

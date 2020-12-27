@@ -72,6 +72,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'phone' => $data['phone'],
             'profile_photo' => "no_img.jpg",
+            'is_active'=>true,
             'password' => Hash::make($data['password']),
             'role' =>3,
 

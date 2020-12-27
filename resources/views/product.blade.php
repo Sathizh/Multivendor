@@ -72,11 +72,12 @@
                 @endphp
                 <span><b>Vendor :</b> {{ $shop[0]->shop_name }}</span>
 
-                <script>
+                {{-- <script>
                     jQuery(document).ready(function () {
+                        console.log("{!!  $details->description !!}");
                         jQuery('#description').html(`{!! $details->description !!}`);
                     });
-                </script>
+                </script> --}}
                 <hr class="mb-3">
                 <div class="d-flex flex-wrap justify-content-between">
                     <div class="entry-share mt-2 mb-2"><span class="text-muted">Share:</span>
@@ -109,11 +110,22 @@
                             role="tab">Description</a></li>
                     <li class="nav-item"><a class="nav-link" href="#reviews" data-toggle="tab" role="tab">Reviews
                             (3)</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#Questions" data-toggle="tab"
+                            role="tab">Questions</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#FAQ" data-toggle="tab" role="tab">FAQ</a></li>
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane fade show active" id="description" role="tabpanel">
+                        <p>The&nbsp;<strong>OnePlus Nord</strong>&nbsp;has a 6.44-inch Fluid AMOLED display with a
+                            resolution of 2400 x 1080
+                            pixels and a 90 Hz refresh rate. The display is&nbsp;<strong>extremely</strong>&nbsp;vibrant
+                            and smooth, and
+                            it&#39;s&nbsp;<strong>great</strong>&nbsp;to see the company not skimp on the quality or
+                            refresh rate of the screen
+                            on&nbsp;<strong>an</strong>&nbsp;affordable device</p>
                         <script>
                             jQuery(document).ready(function () {
+                                console.log("parava illay")
                                                 jQuery('#description').html(`{!! $details->description !!}`);
                                             });
                         </script>
@@ -230,6 +242,93 @@
                                 <button class="btn btn-outline-primary" type="submit">Submit Review</button>
                             </div>
                         </form>
+                    </div>
+                    <div class="tab-pane fade" id="Questions" role="tabpanel">
+                        <!-- Review-->
+                        <div class="comment">
+                            <div class="comment-author-ava"><img
+                                    src="../assets/img/profile_img/5f71f513ba7100007500660f_unnamed_1605505958.png"
+                                    alt="Review author">
+                            </div>
+                            <div class="comment-body">
+                                <div class="comment-header d-flex flex-wrap justify-content-between">
+                                    <h4 class="comment-title">It is 100% natural ?</h4>
+                                    <div class="mb-2">
+                                        23/11/2020 12:45:54 PM
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="comment-footer"><span class="comment-meta">by Mounikaran</span></div>
+                        </div>
+                        <div class="comment">
+                            <div class="comment-author-ava"><img
+                                    src="../assets/img/profile_img/5f71f4e9ba7100007500660e_2020-07-23_1605151096.jpg"
+                                    alt="Review author">
+                            </div>
+                            <div class="comment-body">
+                                <div class="comment-header d-flex flex-wrap justify-content-between">
+                                    <h4 class="comment-title">Yes,It is 100% natural...</h4>
+                                    <div class="mb-2">
+                                        23/11/2020 01:05:37 PM
+                                    </div>
+                                </div>
+                                <div class="comment-footer"><span class="comment-meta">by Sathish</span></div>
+                            </div>
+
+                        </div>
+                        <h5 class="mb-30 padding-top-1x">Leave your answer</h5>
+                        <form class="row" method="post">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="review_text">Answer </label>
+                                    <textarea class="form-control form-control-rounded" id="review_text" rows="6"
+                                        required></textarea>
+                                </div>
+                            </div>
+                            <div class="col-12 text-right">
+                                <button class="btn btn-outline-primary" type="submit">Submit answer</button>
+                            </div>
+                        </form>
+                    </div>
+                    {{-- FAQ --}}
+                    <div class="tab-pane fade" id="FAQ" role="tabpanel">
+                        <!-- Review-->
+                        <div class="comment">
+                            <div class="comment-body">
+                                <div class="comment-header d-flex flex-wrap justify-content-between">
+                                    <h4 class="comment-title">Is it 100% natural ???</h4>
+                                    <div class="mb-2">
+                                        11 Peoples
+                                    </div>
+                                </div>
+                                <p class="comment-text">Yes, It is 100% original and natural product</p>
+                            </div>
+                        </div>
+                        <!-- Review-->
+                        <div class="comment">
+                            <div class="comment-body">
+                                <div class="comment-header d-flex flex-wrap justify-content-between">
+                                    <h4 class="comment-title">How much Quantity ?</h4>
+                                    <div class="mb-2">
+                                        16 Peoples
+                                    </div>
+                                </div>
+                                <p class="comment-text">100 ml</p>
+                            </div>
+                        </div>
+                        <!-- Review-->
+                        <div class="comment">
+                            <div class="comment-body">
+                                <div class="comment-header d-flex flex-wrap justify-content-between">
+                                    <h4 class="comment-title">Can use for Muscle pain ?</h4>
+                                    <div class="mb-2">
+                                        8 Peoples
+                                    </div>
+                                </div>
+                                <p class="comment-text">It also user for "Muscle Pain", mix 5 drops with 1-2 tsp of a
+                                    carrier oil for a relaxing massage</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
