@@ -461,10 +461,10 @@
                         <li><a href="home-dark-header.html">Dark Header</a></li>
                     </ul>
                 </li>
-                <li class="has-children"><span><a href="shop-grid-ls.html"><span>Shop</span></a><span
+                <li class="has-children"><span><a href="#"><span>Shop</span></a><span
                             class="sub-menu-toggle"></span></span>
                     <ul class="offcanvas-submenu">
-                        <li><a href="shop-categories.html">Shop Categories</a></li>
+                        <li><a href="#">Shop Categories</a></li>
                         <li class="has-children"><span><a href="shop-grid-ls.html"><span>Shop Grid</span></a><span
                                     class="sub-menu-toggle"></span></span>
                             <ul class="offcanvas-submenu">
@@ -481,9 +481,9 @@
                                 <li><a href="shop-list-ns.html">List No Sidebar</a></li>
                             </ul>
                         </li>
-                        <li><a href="shop-single.html">Single Product</a></li>
-                        <li><a href="cart.html">Cart</a></li>
-                        <li><a href="checkout.html">Checkout</a></li>
+                        <li><a href="#">Single Product</a></li>
+                        <li><a href="#">Cart</a></li>
+                        <li><a href="#">Checkout</a></li>
                     </ul>
                 </li>
                 <li class="has-children"><span><a href="#">Categories</a><span class="sub-menu-toggle"></span></span>
@@ -693,9 +693,9 @@
                 <li class="has-megamenu"><a href="{{ route('home') }}"><span>Home</span></a>
 
                 </li>
-                <li><a href="shop-grid-ls.html"><span>Shop</span></a></li>
+                <li><a href="#"><span>Shop</span></a></li>
                 {{-- <ul class="sub-menu"> --}}
-                <li><a href="shop-categories.html"><span>Shop Categories</span></a></li>
+                <li><a href="#"><span>Shop Categories</span></a></li>
                 {{-- <li class="has-children"><a href="shop-grid-ls.html"><span>Shop Grid</span></a>
                             <ul class="sub-menu">
                                 <li><a href="shop-grid-ls.html">Grid Left Sidebar</a></li>
@@ -711,8 +711,8 @@
                             </ul>
                         </li> --}}
                 {{-- <li><a href="shop-single.html">Single Product</a></li> --}}
-                <li><a href="cart.html"><span>Cart</span></a></li>
-                <li class="has-children"><a href="checkout-address.html"><span>Checkout</span></a>
+                <li><a href="#"><span>Cart</span></a></li>
+                <li class="#"><a href="checkout-address.html"><span>Checkout</span></a>
                     <ul class="sub-menu">
                         <li><a href="checkout-address.html">Address</a></li>
                         <li><a href="checkout-shipping.html">Shipping</a></li>
@@ -950,7 +950,7 @@
                                     </div>
                                 </div>
                                 <div class="toolbar-dropdown-group row">
-                                    <div class="col-6"><a class="btn btn-sm btn-block btn-secondary"
+                                    <div class="col-6"><a class="sample btn btn-sm btn-block btn-secondary"
                                             href="{{ route('cart.index') }}">View Cart</a></div>
                                     <div class="col-6"><a class="btn btn-sm btn-block btn-success"
                                             href="{{ route('cart.checkout')}}">Checkout</a></div>

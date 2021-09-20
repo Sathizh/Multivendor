@@ -9188,3 +9188,6 @@ a.pswp__share--download:hover {
 .socicon-battlenet:before {
     content: "\e083";
 }
+.smaple:hover {
+    color: greenyellow !important;
+}

@@ -50,6 +50,9 @@ class LoginController extends Controller
         $user = Socialite::driver('github')->user();
         dd($user);
 
+        // $email=$user->email;
+
+
         $user =User::firstOrCreate([
             'email'=>$user->email
         ],
